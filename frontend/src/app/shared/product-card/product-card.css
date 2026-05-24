@@ -1,0 +1,105 @@
+
+    /* Tarjeta base */
+    .product-card {
+      background: white;
+      border-radius: var(--tuti-radio);
+      box-shadow: var(--tuti-sombra);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* Efecto hover: sube ligeramente */
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+    }
+
+    /* Contenedor de imagen con altura fija */
+    .product-card__img-wrapper {
+      position: relative;
+      height: 180px;
+      background: #f5f5f5;
+      overflow: hidden;
+    }
+
+    .product-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .product-card__img {
+      transform: scale(1.05);
+    }
+
+    /* Badge de categoría sobre la imagen */
+    .product-card__categoria {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: var(--tuti-azul);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    /* Cuerpo */
+    .product-card__body {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .product-card__nombre {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #2d2d2d;
+      margin: 0;
+      line-height: 1.3;
+      /* Limita a 2 líneas y agrega "..." */
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .product-card__precio {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--tuti-naranja);
+      margin: 0;
+    }
+
+    /* Botón principal naranja */
+    .product-card__btn {
+      background-color: var(--tuti-naranja);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 8px;
+      margin-top: auto;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .product-card__btn:hover {
+      background-color: var(--tuti-naranja-dark);
+      color: white;
+      transform: scale(1.02);
+    }
+
+    /* Estado "recién añadido": se pone verde brevemente */
+    .product-card__btn--added {
+      background-color: #198754 !important;
+    }

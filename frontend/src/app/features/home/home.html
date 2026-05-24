@@ -1,0 +1,68 @@
+<section class="hero-section text-center text-white d-flex align-items-center justify-content-center">
+  <div class="hero-content p-4">
+    <h1 class="display-4 fw-bold mb-3">
+      <span class="typing-text">La calidad cuesta menos...</span>
+    </h1>
+    <br>
+    <br>
+    <a routerLink="/catalogo" class="btn btn-tuti-naranja btn-lg px-5 py-3 fw-bold hero-btn">
+      Ver Catálogo Completo <i class="bi bi-arrow-right ms-2"></i>
+    </a>
+  </div>
+</section>
+
+<section class="container my-5 text-center">
+  <h3 class="mb-4 text-tuti-azul fw-bold">Explora por Categorías</h3>
+
+  @if (categorias().length === 0) {
+    <div class="text-center py-3">
+      <div class="spinner-border text-warning" role="status"></div>
+    </div>
+  } @else {
+    <div class="categorias-scroll d-flex gap-3 justify-content-center flex-wrap">
+      @for (cat of categorias(); track cat.id; let i = $index) {
+        <div
+          class="category-box animate-entrada"
+          [style.animation-delay]="(i * 80) + 'ms'"
+          (click)="irACategoria(cat)">
+          <i class="bi {{ getIcono(cat.nombre) }} fs-1 text-tuti-azul"></i>
+          <h6 class="mt-2 fw-bold text-dark">{{ cat.nombre }}</h6>
+        </div>
+      }
+    </div>
+  }
+</section>
+
+<section class="banner-tuti">
+  <div class="banner-contenido">
+    <div class="banner-texto">
+      <h2 class="banner-titulo">Bienvenido a TuTi</h2>
+      <p class="banner-subtitulo">Alto en calidad, bajo en precios</p>
+      <a routerLink="/locales" class="btn-banner">
+        📍 Encuentra tu TuTi más cercano
+      </a>
+    </div>
+  </div>
+  <img src="assets/personatuti.png" alt="TuTi" class="banner-imagen">
+</section>
+
+<section class="container my-5 pb-5">
+  <div class="d-flex justify-content-between align-items-end mb-4">
+    <h3 class="text-tuti-azul fw-bold mb-0">Productos Destacados 🌟</h3>
+    <a routerLink="/catalogo" class="text-tuti-naranja fw-bold text-decoration-none">Ver todos</a>
+  </div>
+
+  @if (cargando()) {
+    <div class="text-center py-5">
+      <div class="spinner-border text-naranja" role="status"></div>
+    </div>
+  } @else {
+    <div class="row row-cols-2 row-cols-md-4 g-4">
+      @for (prod of destacados(); track prod.id) {
+        <div class="col">
+          <app-product-card [producto]="prod" />
+        </div>
+      }
+    </div>
+  }
+</section>

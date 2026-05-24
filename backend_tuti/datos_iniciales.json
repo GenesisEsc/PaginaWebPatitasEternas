@@ -1,0 +1,542 @@
+[
+{
+  "model": "api.categoria",
+  "pk": 1,
+  "fields": {
+    "nombre": "Alacena",
+    "descripcion": "Tabla destinada a almacenar la informaci�n de los productos alimenticios disponibles en la despensa."
+  }
+},
+{
+  "model": "api.categoria",
+  "pk": 2,
+  "fields": {
+    "nombre": "Electrodomésticos",
+    "descripcion": "Tabla que registra los dispositivos eléctricos del hogar o establecimiento."
+  }
+},
+{
+  "model": "api.categoria",
+  "pk": 3,
+  "fields": {
+    "nombre": "Panadería",
+    "descripcion": ""
+  }
+},
+{
+  "model": "api.categoria",
+  "pk": 4,
+  "fields": {
+    "nombre": "Mascotas",
+    "descripcion": ""
+  }
+},
+{
+  "model": "api.categoria",
+  "pk": 6,
+  "fields": {
+    "nombre": "Hogar y Limpieza",
+    "descripcion": ""
+  }
+},
+{
+  "model": "api.categoria",
+  "pk": 7,
+  "fields": {
+    "nombre": "Golosinas y Snacks",
+    "descripcion": ""
+  }
+},
+{
+  "model": "api.categoria",
+  "pk": 8,
+  "fields": {
+    "nombre": "Bebidas y Licores",
+    "descripcion": ""
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 1,
+  "fields": {
+    "categoria": 1,
+    "nombre": "Naranjilla",
+    "descripcion": "Naranjilla Fresca Para Jugo.",
+    "precio": "3.23",
+    "stock": 489,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/05/7868000969207-1.png",
+    "activo": true,
+    "fecha_creacion": "2026-04-16T21:01:15.036Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 2,
+  "fields": {
+    "categoria": 1,
+    "nombre": "Desinfectante Antibacterial",
+    "descripcion": "Desinfectante Antibacterial Fragancia Naranja Limon Con Bicarbonato 900 Ml",
+    "precio": "1.77",
+    "stock": 325,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2026/03/7861223825770-1-1.png",
+    "activo": true,
+    "fecha_creacion": "2026-04-16T21:02:20.060Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 3,
+  "fields": {
+    "categoria": 2,
+    "nombre": "Set De Juego Batidora",
+    "descripcion": "Set De Juego Batidora MY LITTLE HOME Incluye Accesorios",
+    "precio": "8.11",
+    "stock": 120,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2024/08/6929800440806-1-4.jpg",
+    "activo": true,
+    "fecha_creacion": "2026-04-16T21:03:50.967Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 4,
+  "fields": {
+    "categoria": 2,
+    "nombre": "Sartén Eléctrico",
+    "descripcion": "Sartén Eléctrico Modelo DEP3650 DAEWOO 120V",
+    "precio": "34.50",
+    "stock": 96,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2024/08/4895155632932-1-9.jpg",
+    "activo": true,
+    "fecha_creacion": "2026-04-16T21:04:51.990Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 5,
+  "fields": {
+    "categoria": 3,
+    "nombre": "Bizcotelas",
+    "descripcion": "Galletas dulces, ligeras y esponjosas, reconocidas por su forma alargada y extremos redondeados.",
+    "precio": "1.69",
+    "stock": 19,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/07/7861006722326-1-11.jpg",
+    "activo": true,
+    "fecha_creacion": "2026-04-17T23:44:04.130Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 6,
+  "fields": {
+    "categoria": 3,
+    "nombre": "Tortillas clasicas",
+    "descripcion": "Tortillas de harina de trigo, prácticas para preparar quesadillas",
+    "precio": "1.49",
+    "stock": 20,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2024/08/7861009944893-1-2.jpg",
+    "activo": true,
+    "fecha_creacion": "2026-04-17T23:45:52.283Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 7,
+  "fields": {
+    "categoria": 3,
+    "nombre": "Pan Molde Sin Corteza",
+    "descripcion": "Pan Blanco Blanco Sin Corteza SUPÁN Funda – SUPÁN",
+    "precio": "1.99",
+    "stock": 15,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2024/08/7861009944275-1-15.jpg",
+    "activo": true,
+    "fecha_creacion": "2026-04-17T23:48:15.942Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 8,
+  "fields": {
+    "categoria": 3,
+    "nombre": "Pan Briollo",
+    "descripcion": "Pan esponjoso tipo mini hot dog.",
+    "precio": "0.99",
+    "stock": 20,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/06/7861009944121-1-8.jpg",
+    "activo": true,
+    "fecha_creacion": "2026-04-17T23:49:59.573Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 9,
+  "fields": {
+    "categoria": 4,
+    "nombre": "Alimento Para Gatos NutraPro",
+    "descripcion": "El \"Alimento para Gatos y Gatitos NUTRAPRO\" es un alimento seco formulado para satisfacer las necesidades nutricionales de los gatos y gatitos. Está diseñado para ser una fuente completa de nutrición y proporciona los nutrientes esenciales que los gatos necesitan para mantenerse saludables y activos",
+    "precio": "2.25",
+    "stock": 200,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2024/08/7861032237528-1-4.jpg",
+    "activo": true,
+    "fecha_creacion": "2026-04-17T23:52:13.664Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 10,
+  "fields": {
+    "categoria": 4,
+    "nombre": "Alimento Humedo Para Gatos Whiskas",
+    "descripcion": "Alimento Húmedo para gatos Whiskas Adult Atún en Salsa , ofrece a tu gato deliciosos trocitos de carne cocidos al vapor que le otorgan fibras naturales y minerales, Vitamina A y Taurina que benefician integralmente su salud",
+    "precio": "0.85",
+    "stock": 80,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/06/7896029046609-1-9.png",
+    "activo": true,
+    "fecha_creacion": "2026-04-17T23:53:58.876Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 11,
+  "fields": {
+    "categoria": 4,
+    "nombre": "Alimento para gatos Vitality Nutrapro",
+    "descripcion": "Este alimento para gatos adultos está diseñado para ofrecer una dieta completa y equilibrada que sea deliciosa y nutritiva. El sabor a pescado suele ser atractivo para muchos gatos, lo que puede estimular su apetito",
+    "precio": "2.25",
+    "stock": 70,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/03/7861032237542-1.png",
+    "activo": true,
+    "fecha_creacion": "2026-04-17T23:56:06.613Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 12,
+  "fields": {
+    "categoria": 4,
+    "nombre": "Snack Nuggets para gatos Nutrapro",
+    "descripcion": "Este snack para gatos está formulado para ser una recompensa sabrosa que a los gatos les encanta. Por lo general, contiene ingredientes de alta calidad, incluyendo pollo y hígado, que son sabores que a menudo son muy atractivos para los gatos. Estas golosinas son ideales para premiar a tu gato por su buen comportamiento o simplemente para darle un bocado delicioso de vez en cuando",
+    "precio": "1.25",
+    "stock": 80,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2024/12/7861032245257-1-18.jpg",
+    "activo": true,
+    "fecha_creacion": "2026-04-17T23:57:25.921Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 13,
+  "fields": {
+    "categoria": 6,
+    "nombre": "Detergente en polvo Elimina Olores CICLON",
+    "descripcion": "Limpia profundamente mientras suaviza y perfuma",
+    "precio": "1.94",
+    "stock": 50,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2026/03/7861048616553-1-10.png",
+    "activo": true,
+    "fecha_creacion": "2026-04-18T00:04:09.414Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 14,
+  "fields": {
+    "categoria": 6,
+    "nombre": "Detergente Multipoder DEJA",
+    "descripcion": "Deja te trae la fòrmula màs poderosa de la historia, ahora con tecnologia de Bicarbonato Activo que te da Ultra Rendimiento + Ultra Limpieza",
+    "precio": "1.85",
+    "stock": 70,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/05/7861001300925-1-3.png",
+    "activo": true,
+    "fecha_creacion": "2026-04-18T00:05:20.985Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 15,
+  "fields": {
+    "categoria": 6,
+    "nombre": "Cloro Gel Diamant",
+    "descripcion": "Es un limpiador, desinfectante y blanqueador multiusos que elimina el 99.99% de hongos y bacterias",
+    "precio": "0.78",
+    "stock": 20,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2024/08/7861038059995-1-11.jpg",
+    "activo": true,
+    "fecha_creacion": "2026-04-18T00:07:16.061Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 16,
+  "fields": {
+    "categoria": 6,
+    "nombre": "Fósforos de seguridad Fogata",
+    "descripcion": "Enciende tus momentos especiales con los fósforos de seguridad Fogata",
+    "precio": "0.49",
+    "stock": 89,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/06/7861020000271-1-20.jpg",
+    "activo": true,
+    "fecha_creacion": "2026-04-18T00:08:54.474Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 17,
+  "fields": {
+    "categoria": 6,
+    "nombre": "Velas Blancas Universales",
+    "descripcion": "Vela Universal Blanca Lisa Funda",
+    "precio": "0.85",
+    "stock": 59,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/06/7861042579045-1-18.jpg",
+    "activo": true,
+    "fecha_creacion": "2026-04-18T00:11:09.406Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 18,
+  "fields": {
+    "categoria": 7,
+    "nombre": "Barra de Chocolate Snickers",
+    "descripcion": "La más deliciosa combinación de caramelo y nougat de maní en una envoltura de chocolate que calma tu hambre",
+    "precio": "0.64",
+    "stock": 70,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2024/08/40000514251-1-27.png",
+    "activo": true,
+    "fecha_creacion": "2026-04-18T00:17:08.661Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 19,
+  "fields": {
+    "categoria": 7,
+    "nombre": "Barra De Chocolate Con Maní",
+    "descripcion": "Deliciosa barra de chocolate.",
+    "precio": "1.05",
+    "stock": 87,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/06/7861091148124-1-1.png",
+    "activo": true,
+    "fecha_creacion": "2026-04-18T00:20:10.736Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 20,
+  "fields": {
+    "categoria": 7,
+    "nombre": "Bocaditos De Maíz Sabor Mega Queso",
+    "descripcion": "Snack crujiente con sabores intensos, ideal para compartir.",
+    "precio": "3.63",
+    "stock": 67,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2026/03/7861018591897-1-3.png",
+    "activo": true,
+    "fecha_creacion": "2026-04-18T00:22:14.125Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 21,
+  "fields": {
+    "categoria": 7,
+    "nombre": "Cake Cubierto de Chocolate Biri Biri",
+    "descripcion": "Pastelito de chocolate relleno de crema",
+    "precio": "0.49",
+    "stock": 33,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/06/7861009943759-1-10.png",
+    "activo": true,
+    "fecha_creacion": "2026-04-18T00:25:16.414Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 22,
+  "fields": {
+    "categoria": 7,
+    "nombre": "Barrilete",
+    "descripcion": "Caramelo Masticables Sabor Tutti Frutti BARRILETE 400 G",
+    "precio": "2.30",
+    "stock": 88,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2024/10/7702993602508-1.png",
+    "activo": true,
+    "fecha_creacion": "2026-04-18T00:26:34.770Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 23,
+  "fields": {
+    "categoria": 8,
+    "nombre": "Aguardiente sin azúcar Antioqueno",
+    "descripcion": "Un licor seco obtenido con alcohol extra puro a partir de subproductos de melaza, miel virgen y azúcar, con su tradicional sabor a esencia de anís",
+    "precio": "7.69",
+    "stock": 90,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/08/7702049000548-1-20.png",
+    "activo": true,
+    "fecha_creacion": "2026-04-18T00:29:17.438Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 24,
+  "fields": {
+    "categoria": 8,
+    "nombre": "Bebida de Malta PonyMalta",
+    "descripcion": "Bebida refrescante y nutritiva a base de malta, con ingredientes naturales. Enriquecida con vitaminas y minerales",
+    "precio": "0.43",
+    "stock": 90,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/03/9497003006-1-1.png",
+    "activo": true,
+    "fecha_creacion": "2026-04-18T00:30:41.627Z"
+  }
+},
+{
+  "model": "api.producto",
+  "pk": 25,
+  "fields": {
+    "categoria": 8,
+    "nombre": "Cerveza Pilsener",
+    "descripcion": "Cerveza Tipo Pilsener De Origen Ecuatoriano Desde 1913 L Abv 4. 0° contiene 1 Lata De 355ml",
+    "precio": "0.85",
+    "stock": 78,
+    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/08/9497000661-1-11-300x300.jpg",
+    "activo": true,
+    "fecha_creacion": "2026-04-18T00:31:59.695Z"
+  }
+},
+{
+  "model": "api.pedido",
+  "pk": 1,
+  "fields": {
+    "email": "byron22@gmail.com",
+    "nombre": "Byron",
+    "apellidos": "Melo",
+    "cedula": "1729309946",
+    "telefono": "0960027228",
+    "metodo_envio": "DOMICILIO",
+    "direccion_envio": "Calle E14, Quito",
+    "total": "138.00",
+    "fecha_pedido": "2026-04-17T17:16:16.510Z",
+    "pagado": false
+  }
+},
+{
+  "model": "api.detallepedido",
+  "pk": 1,
+  "fields": {
+    "pedido": 1,
+    "producto": 4,
+    "cantidad": 4,
+    "precio_unitario": "34.50"
+  }
+},
+{
+  "model": "api.tienda",
+  "pk": 1,
+  "fields": {
+    "nombre": "TuTi La Floresta",
+    "provincia": "Pichincha",
+    "ciudad": "Quito",
+    "direccion": "Madrid E12-71, 170143 Quito",
+    "latitud": "-0.207470",
+    "longitud": "-78.485580"
+  }
+},
+{
+  "model": "api.tienda",
+  "pk": 2,
+  "fields": {
+    "nombre": "TuTi Quitumbe",
+    "provincia": "Pichincha",
+    "ciudad": "Quito",
+    "direccion": "Av. Llira Ñan y Pachamama &, 170146 Quito",
+    "latitud": "-0.296210",
+    "longitud": "-78.545700"
+  }
+},
+{
+  "model": "api.tienda",
+  "pk": 3,
+  "fields": {
+    "nombre": "TuTi Villaflora",
+    "provincia": "Pichincha",
+    "ciudad": "Quito",
+    "direccion": "QF4J+99P, Av Rodrigo de Chávez, 170111 Quito",
+    "latitud": "-0.243950",
+    "longitud": "-78.518850"
+  }
+},
+{
+  "model": "api.tienda",
+  "pk": 4,
+  "fields": {
+    "nombre": "TuTi Simón Bolivar",
+    "provincia": "Pichincha",
+    "ciudad": "Quito",
+    "direccion": "Av. Simón Bolívar &, 170145 Quito",
+    "latitud": "-0.243120",
+    "longitud": "-78.482460"
+  }
+},
+{
+  "model": "api.tienda",
+  "pk": 5,
+  "fields": {
+    "nombre": "TuTi Loma de Puengasí",
+    "provincia": "Pichincha",
+    "ciudad": "Quito",
+    "direccion": "QG43+HG4, Ricardo Izurieta del Castillo, 170145 Quito",
+    "latitud": "-0.243610",
+    "longitud": "-78.496130"
+  }
+},
+{
+  "model": "api.tienda",
+  "pk": 6,
+  "fields": {
+    "nombre": "TuTi 10 de Agosto",
+    "provincia": "Guayas",
+    "ciudad": "Guayaquil",
+    "direccion": "R443+WMR, Blvd. 9 de Octubre, 090311 Guayaquil",
+    "latitud": "-2.192490",
+    "longitud": "-79.895150"
+  }
+},
+{
+  "model": "api.tienda",
+  "pk": 7,
+  "fields": {
+    "nombre": "TuTi Eloy Alfaro",
+    "provincia": "Guayas",
+    "ciudad": "Guayaquil",
+    "direccion": "Q4W8+F9H, 090314 Guayaquil",
+    "latitud": "-2.203550",
+    "longitud": "-79.883660"
+  }
+},
+{
+  "model": "api.tienda",
+  "pk": 8,
+  "fields": {
+    "nombre": "TuTi Pascuales",
+    "provincia": "Guayas",
+    "ciudad": "Guayaquil",
+    "direccion": "W3J9+M2 Guayaquil, C. 28N-O Pasaje",
+    "latitud": "-2.068140",
+    "longitud": "-79.931960"
+  }
+},
+{
+  "model": "api.tienda",
+  "pk": 9,
+  "fields": {
+    "nombre": "TuTi Prosperina",
+    "provincia": "Guayas",
+    "ciudad": "Guayaquil",
+    "direccion": "V357+F82, C. 18F N-O, 090610 Guayaquil",
+    "latitud": "-2.141170",
+    "longitud": "-79.935940"
+  }
+}
+]

@@ -1,0 +1,37 @@
+/* src/styles.scss */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+/* ========================================
+   VARIABLES INSTITUCIONALES TUTI
+   Colores: Naranja (#F26522) + Azul (#003DA5)
+======================================== */
+:root {
+  --tuti-naranja:    #FACC15;
+  --tuti-naranja-dark: #de6f20;
+  --tuti-azul:        #003DA5;
+  --tuti-azul-dark:   #002d7a;
+  --tuti-gris-claro:  #f8f8f8;
+  --tuti-gris:        #6c757d;
+  --tuti-blanco:      #ffffff;
+  --tuti-sombra:      0 2px 12px rgba(0, 0, 0, 0.10);
+  --tuti-radio:       12px;
+}
+
+/* Reset / base */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--tuti-gris-claro);
+  color: #2d2d2d;
+  padding-top: 30px;
+}
+
+a {
+  color: var(--tuti-azul);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--tuti-naranja);
+}/* You can add global styles to this file, and also import other style files */

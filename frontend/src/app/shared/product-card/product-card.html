@@ -1,0 +1,38 @@
+    <div class="product-card h-100">
+
+      <!-- Imagen del producto -->
+      <div class="product-card__img-wrapper">
+        <img
+          [src]="producto.imagen"
+          [alt]="producto.nombre"
+          class="product-card__img"
+          loading="lazy"
+        />
+        <!-- Badge con la categoría -->
+        <span class="product-card__categoria">{{ producto.categoria }}</span>
+      </div>
+
+      <!-- Cuerpo de la tarjeta -->
+      <div class="product-card__body">
+        <h6 class="product-card__nombre">{{ producto.nombre }}</h6>
+
+        <!-- Precio con pipe currency de Angular -->
+        <p class="product-card__precio">
+          {{ producto.precio | currency:'USD':'symbol':'1.2-2' }}
+        </p>
+
+        <!-- Botón para añadir al carrito -->
+        <button
+          class="btn product-card__btn w-100"
+          (click)="agregarAlCarrito()"
+          [class.product-card__btn--added]="recienAgregado"
+        >
+          @if (recienAgregado) {
+            <!-- Feedback visual de "añadido" -->
+            <i class="bi bi-check-lg me-1"></i> ¡Añadido!
+          } @else {
+            <i class="bi bi-cart-plus me-1"></i> Añadir al carrito
+          }
+        </button>
+      </div>
+    </div>

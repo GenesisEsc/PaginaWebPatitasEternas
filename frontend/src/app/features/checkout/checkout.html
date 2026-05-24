@@ -1,0 +1,63 @@
+    <div class="container py-4">
+      <h3 class="checkout-titulo mb-4">
+        <i class="bi bi-bag-check me-2"></i> Tu pedido
+      </h3>
+
+      <!-- Indicador de pasos (stepper visual) -->
+      <div class="stepper mb-4">
+        @for (paso of pasos; track paso.numero) {
+          <div
+            class="stepper__paso"
+            [class.stepper__paso--activo]="pasoActual() === paso.numero"
+            [class.stepper__paso--completado]="pasoActual() > paso.numero"
+          >
+            <!-- Círculo del número de paso -->
+            <div class="stepper__circulo">
+              @if (pasoActual() > paso.numero) {
+                <i class="bi bi-check-lg"></i>
+              } @else {
+                {{ paso.numero }}
+              }
+            </div>
+            <!-- Etiqueta del paso -->
+            <span class="stepper__label d-none d-sm-inline">{{ paso.label }}</span>
+          </div>
+
+          <!-- Línea conectora entre pasos (excepto después del último) -->
+          @if (paso.numero < pasos.length) {
+            <div class="stepper__linea"
+                 [class.stepper__linea--completada]="pasoActual() > paso.numero">
+            </div>
+          }
+        }
+      </div>
+
+      <!-- Contenido del paso activo -->
+      <div class="checkout-panel">
+        @switch (pasoActual()) {
+          @case (1) {
+            <app-paso-carrito
+              (siguiente)="irAlPaso(2, $event)"
+            />
+          }
+          @case (2) {
+            <app-paso-identificacion
+              (anterior)="irAlPaso(1)"
+              (siguiente)="irAlPaso(3, $event)"
+            />
+          }
+          @case (3) {
+            <app-paso-entrega
+              (anterior)="irAlPaso(2, $event)"
+              (siguiente)="irAlPaso(4, $event)"
+            />
+          }
+          @case (4) {
+            <app-paso-pago
+              (anterior)="irAlPaso(3, $event)"
+              (confirmar)="confirmarPedido()"
+            />
+          }
+        }
+      </div>
+    </div>

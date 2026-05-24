@@ -1,0 +1,4 @@
+
+    .paso-titulo { font-weight: 700; color: var(--tuti-azul); }
+    .border-tuti-active { border-color: var(--tuti-naranja) !important; background-color: #fffaf7; }
+    .text-naranja { color: var(--tuti-naranja); font-weight: 800; }

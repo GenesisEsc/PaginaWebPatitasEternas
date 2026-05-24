@@ -1,0 +1,87 @@
+    .checkout-titulo {
+      font-weight: 700;
+      color: var(--tuti-azul);
+    }
+
+    /* Stepper horizontal */
+    .stepper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .stepper__paso {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Círculo numerado */
+    .stepper__circulo {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #e9ecef;
+      color: #6c757d;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #dee2e6;
+      transition: all 0.3s ease;
+    }
+
+    /* Paso activo: naranja */
+    .stepper__paso--activo .stepper__circulo {
+      background: var(--tuti-naranja);
+      color: white;
+      border-color: var(--tuti-naranja);
+      transform: scale(1.1);
+    }
+
+    /* Paso completado: azul con check */
+    .stepper__paso--completado .stepper__circulo {
+      background: var(--tuti-azul);
+      color: white;
+      border-color: var(--tuti-azul);
+    }
+
+    .stepper__label {
+      font-size: 0.75rem;
+      color: var(--tuti-gris);
+      font-weight: 500;
+    }
+
+    .stepper__paso--activo .stepper__label {
+      color: var(--tuti-naranja);
+      font-weight: 700;
+    }
+
+    .stepper__paso--completado .stepper__label {
+      color: var(--tuti-azul);
+    }
+
+    /* Línea conectora */
+    .stepper__linea {
+      flex: 1;
+      height: 2px;
+      background: #dee2e6;
+      margin: 0 4px;
+      margin-bottom: 20px; /* alinear con los círculos */
+      transition: background-color 0.3s ease;
+    }
+
+    .stepper__linea--completada {
+      background: var(--tuti-azul);
+    }
+
+    /* Panel blanco donde va el contenido de cada paso */
+    .checkout-panel {
+      background: white;
+      border-radius: var(--tuti-radio);
+      box-shadow: var(--tuti-sombra);
+      padding: 24px;
+    }

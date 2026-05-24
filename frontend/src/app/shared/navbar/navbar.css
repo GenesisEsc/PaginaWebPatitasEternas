@@ -1,0 +1,69 @@
+/* Fondo blanco limpio para el navbar */
+    .navbar-tuti {
+      background-color: var(--tuti-blanco);
+      border-bottom: 2px solid var(--tuti-naranja);
+      padding: 0.5rem 0;  /* antes era 0.75rem */
+     min-height: 64px; 
+    }
+    .logo-tuti {
+    height: 80px;   /* altura fija, no max-height */
+    width: auto;
+   }
+
+    /* Input de búsqueda con borde naranja al enfocar */
+    .buscador-input:focus {
+      border-color: var(--tuti-naranja);
+      box-shadow: 0 0 0 0.2rem rgba(242, 101, 34, 0.20);
+    }
+
+    /* Botón naranja (color institucional) */
+    .btn-naranja {
+      background-color: var(--tuti-naranja);
+      color: white;
+      border-color: var(--tuti-naranja);
+    }
+    .btn-naranja:hover {
+      background-color: var(--tuti-naranja-dark);
+      color: white;
+    }
+
+    /* Botón outline azul para el carrito */
+    .btn-outline-azul {
+      border-color: var(--tuti-naranja);
+      color: var(--tuti-azul);
+      border-radius: 8px;
+    }
+    .btn-outline-azul:hover {
+      background-color: var(--tuti-naranja);
+      color: white;
+    }
+
+    /* Badge rojo encima del ícono del carrito */
+    .badge-carrito {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      background-color: #dc3545;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    /* Animación bounce para el ubi-tuti */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0);    }
+  30%       { transform: translateY(-8px); }
+  60%       { transform: translateY(-4px); }
+}
+
+
+.ubi-tuti-img:hover {
+  animation: bounce 0.6s ease-in-out infinite;
+}

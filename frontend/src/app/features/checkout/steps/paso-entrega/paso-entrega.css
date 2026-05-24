@@ -1,0 +1,5 @@
+
+    .paso-titulo { font-weight: 700; color: var(--tuti-azul); }
+    .form-label-tuti { font-weight: 600; font-size: 0.88rem; color: #444; }
+    .form-control-tuti:focus { border-color: var(--tuti-naranja); box-shadow: 0 0 0 0.2rem rgba(242, 101, 34, 0.20); }
+    .btn-tuti-naranja { background: var(--tuti-naranja); color: white; font-weight: 600; padding: 8px 24px; border-radius: 8px; }

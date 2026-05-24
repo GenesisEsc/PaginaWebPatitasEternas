@@ -1,0 +1,25 @@
+    .text-tuti-azul { color: #003DA5; }
+    .form-control-tuti:focus { border-color: #F26522; box-shadow: 0 0 0 0.2rem rgba(242, 101, 34, 0.2); }
+    
+    .tienda-item {
+      cursor: pointer;
+      border: 1px solid #eee;
+      transition: all 0.2s ease;
+      background: white;
+    }
+    
+    .tienda-item:hover { border-color: #F26522; background: #fffaf7; }
+    .tienda-item.active { border-color: #003DA5; background: #eef4ff; border-left: 5px solid #003DA5; }
+
+    .locales-lista::-webkit-scrollbar { width: 5px; }
+    .locales-lista::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+
+    #contenedor-mapa {
+  height: 650px;
+  width: 100%;
+  z-index: 1; /* Leaflet a veces queda detrás sin esto */
+}
+:host {
+  display: block;
+  margin-top: -20px; /* ajusta este valor hasta que quede bien */
+}

@@ -1,0 +1,9 @@
+ .catalogo-titulo {
+      font-weight: 700;
+      color: var(--tuti-azul);
+    }
+
+    /* Spinner con color naranja de Tuti */
+    .text-naranja {
+      color: var(--tuti-naranja) !important;
+    }

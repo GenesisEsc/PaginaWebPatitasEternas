@@ -1,0 +1,191 @@
+    /* Colores locales por si no están en tu :root */
+    .text-tuti-azul { color: var(--tuti-azul, #003DA5); }
+    .text-tuti-naranja { color: var(--tuti-naranja, #F26522); }
+    .text-tuti-prueba { color: var(--tuti-amarillo, #f2d322); }
+    .btn-tuti-naranja { 
+      background-color: var(--tuti-naranja, #F26522); 
+      color: rgb(252, 252, 252); 
+      border-radius: 30px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-tuti-naranja:hover {
+      background-color: var(--tuti-naranja-dark, #d4541a);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(242, 100, 34, 0.484);
+      
+    }
+
+    /* Diseño del Banner con un degradado azul institucional */
+    
+    .hero-section {
+    background-image: 
+    linear-gradient(rgba(0, 60, 165, 0.919), rgba(0, 60, 165, 0.36)),
+    url('/assets/local.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    
+   }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    /* Cajas de categoría limpias con hover sutil */
+    .category-box {
+      background: rgba(122, 185, 243, 0.568);
+      border-radius: 30px;
+      padding: 20px 10px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border: 1px solid #eee;
+      transition: all 0.3s ease;
+      width: 150px;
+     word-break: break-word;  /* parte el texto si es muy largo */
+     overflow: hidden;
+    }
+
+.category-box h6 {
+  font-size: 0.8rem;  /* letra un poco más pequeña */
+  line-height: 1.2;
+  margin: 0;
+}
+
+    .category-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.432);
+  filter: brightness(0.95); /* oscurece levemente el color al hacer hover */
+  border-color: var(--tuti-naranja) !important;
+}
+
+    .spinner-border.text-naranja {
+      color: var(--tuti-naranja, #d1541b) !important;
+    }
+    .typing-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 4px solid white;
+  width: 0;
+  animation:
+    typing       2.5s steps(26, end) forwards,
+    blink-cursor 0.75s step-end      infinite;
+}
+@keyframes typing {
+  from { width: 0;    }
+  to   { width: 100%; }
+}
+
+@keyframes blink-cursor {
+  0%, 100% { border-color: white;       }
+  50%      { border-color: transparent; }
+}
+
+
+
+.banner-tuti {
+  position: relative;
+  background: linear-gradient(135deg, #00c6e0ed 0%, #0181ab 50%, #083f9d 100%);
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+/* Patrón de puntos decorativo igual al de la imagen */
+.banner-tuti::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+.banner-contenido {
+  position: relative;
+  z-index: 2;
+  padding: 3rem 4rem;
+  max-width: 55%;
+}
+
+.banner-titulo {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #003DA5;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.banner-subtitulo {
+  font-size: 1.1rem;
+  color: white;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.btn-banner {
+  display: inline-block;
+  background-color: #FACC15;
+  color: #003DA5;
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-banner:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  color: #003DA5;
+}
+
+.banner-imagen {
+  position: absolute;
+  right: 5%;
+  bottom: 0;
+  height: 110%;
+  max-height: 380px;
+  object-fit: contain;
+  z-index: 1;
+  transition: transform 0.4s ease-out;
+  animation: flotarPersona 3s ease-in-out infinite;
+}
+
+/* Cuando el mouse entra al banner, la imagen se mueve */
+.banner-tuti:hover .banner-imagen {
+  transform: translateX(-20px) translateY(-10px) scale(1.05);
+  animation-play-state: paused; /* pausa el flotar al hacer hover */
+}
+
+/* Si quieres que reaccione según la mitad del banner */
+.banner-tuti:hover .banner-contenido {
+  transform: translateX(5px);
+  transition: transform 0.4s ease-out;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .banner-contenido {
+    max-width: 100%;
+    padding: 2rem;
+  }
+
+  .banner-titulo {
+    font-size: 2rem;
+  }
+
+  .banner-imagen {
+    opacity: 0.15;
+    height: 100%;
+  }
+}

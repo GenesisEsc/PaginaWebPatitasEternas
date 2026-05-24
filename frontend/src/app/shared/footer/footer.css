@@ -1,0 +1,30 @@
+    .footer-tuti {
+      background-color: var(--tuti-azul);
+      color: white;
+    }
+    .footer-titulo {
+      color: var(--tuti-naranja);
+      font-weight: 700;
+    }
+    .footer-subtitulo {
+      color: #aac4f0;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+    .footer-texto {
+      color: #d0dff5;
+      font-size: 0.9rem;
+    }
+    .footer-hr {
+      border-color: rgba(255,255,255,0.2);
+    }
+    .pago-badge {
+      background: rgba(255,255,255,0.15);
+      color: white;
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      border: 1px solid rgba(255,255,255,0.25);
+    }

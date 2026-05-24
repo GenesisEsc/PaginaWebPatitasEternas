@@ -1,0 +1,55 @@
+    .confirmacion-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: var(--tuti-sombra);
+      padding: 48px 32px;
+      text-align: center;
+      max-width: 480px;
+    }
+
+    /* Ícono verde grande con animación de escala */
+    .confirmacion-icono {
+      font-size: 5rem;
+      color: #198754;
+      margin-bottom: 16px;
+      animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    .confirmacion-titulo {
+      font-weight: 700;
+      color: var(--tuti-azul);
+      margin-bottom: 8px;
+    }
+
+    .text-azul { color: var(--tuti-azul); }
+
+    .btn-imprimir {
+      background: var(--tuti-azul);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      padding: 10px 24px;
+    }
+    .btn-imprimir:hover {
+      background: var(--tuti-azul-dark);
+      color: white;
+    }
+
+    .btn-seguir {
+      background: var(--tuti-naranja);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      padding: 10px 24px;
+    }
+    .btn-seguir:hover {
+      background: var(--tuti-naranja-dark);
+      color: white;
+    }

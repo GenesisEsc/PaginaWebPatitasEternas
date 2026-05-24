@@ -1,0 +1,43 @@
+    <h5 class="paso-titulo mb-4">
+      <i class="bi bi-credit-card me-2"></i> Método de Pago
+    </h5>
+
+    <div class="row g-4">
+      <div class="col-md-8">
+        <div class="list-group">
+          <label class="list-group-item d-flex gap-3 p-3 border-tuti-active">
+            <input class="form-check-input flex-shrink-0 mt-1" type="radio" name="metodoPago" checked>
+            <span>
+              <strong class="d-block">Tarjeta de Crédito / Débito</strong>
+              <small class="text-muted">Paga de forma segura con Visa o Mastercard</small>
+            </span>
+          </label>
+          <label class="list-group-item d-flex gap-3 p-3">
+            <input class="form-check-input flex-shrink-0 mt-1" type="radio" name="metodoPago">
+            <span>
+              <strong class="d-block">Transferencia Bancaria</strong>
+              <small class="text-muted">Te mostraremos los datos al confirmar</small>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card bg-light border-0">
+          <div class="card-body">
+            <h6 class="card-title fw-bold">Total a pagar</h6>
+            <h3 class="text-naranja mb-3">{{ cartService.totalPrecio() | currency:'USD' }}</h3>
+            <p class="small text-muted"><i class="bi bi-shield-check text-success"></i> Transacción 100% segura</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between mt-5">
+      <button type="button" class="btn btn-outline-secondary" (click)="anterior.emit()">
+        <i class="bi bi-arrow-left me-1"></i> Volver
+      </button>
+      <button type="button" class="btn btn-success fw-bold px-4 py-2" (click)="confirmar.emit()">
+        <i class="bi bi-check-circle me-1"></i> Confirmar Pedido
+      </button>
+    </div>

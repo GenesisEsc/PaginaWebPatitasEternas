@@ -1,0 +1,116 @@
+<h5 class="paso-titulo mb-4">
+      <i class="bi bi-person-circle me-2"></i> Tus datos
+    </h5>
+
+    <form [formGroup]="form" (ngSubmit)="onSiguiente()" novalidate>
+      <div class="row g-3">
+
+        <!-- Email -->
+        <div class="col-md-6">
+          <label class="form-label form-label-tuti">Correo electrónico *</label>
+          <input
+            type="email"
+            class="form-control form-control-tuti"
+            [class.is-invalid]="mostrarError('email')"
+            [class.is-valid]="form.get('email')?.valid && form.get('email')?.touched"
+            formControlName="email"
+            placeholder="tu@correo.com"
+          />
+          @if (mostrarError('email')) {
+            <div class="invalid-feedback">
+              {{ getError('email') }}
+            </div>
+          }
+        </div>
+
+        <!-- Teléfono -->
+        <div class="col-md-6">
+          <label class="form-label form-label-tuti">Teléfono *</label>
+          <input
+            type="tel"
+            class="form-control form-control-tuti"
+            [class.is-invalid]="mostrarError('telefono')"
+            [class.is-valid]="form.get('telefono')?.valid && form.get('telefono')?.touched"
+            formControlName="telefono"
+            placeholder="0999123456"
+          />
+          @if (mostrarError('telefono')) {
+            <div class="invalid-feedback">
+              {{ getError('telefono') }}
+            </div>
+          }
+        </div>
+
+        <!-- Nombre -->
+        <div class="col-md-6">
+          <label class="form-label form-label-tuti">Nombre *</label>
+          <input
+            type="text"
+            class="form-control form-control-tuti"
+            [class.is-invalid]="mostrarError('nombre')"
+            [class.is-valid]="form.get('nombre')?.valid && form.get('nombre')?.touched"
+            formControlName="nombre"
+            placeholder="María"
+          />
+          @if (mostrarError('nombre')) {
+            <div class="invalid-feedback">{{ getError('nombre') }}</div>
+          }
+        </div>
+
+        <!-- Apellido -->
+        <div class="col-md-6">
+          <label class="form-label form-label-tuti">Apellido *</label>
+          <input
+            type="text"
+            class="form-control form-control-tuti"
+            [class.is-invalid]="mostrarError('apellido')"
+            [class.is-valid]="form.get('apellido')?.valid && form.get('apellido')?.touched"
+            formControlName="apellido"
+            placeholder="García"
+          />
+          @if (mostrarError('apellido')) {
+            <div class="invalid-feedback">{{ getError('apellido') }}</div>
+          }
+        </div>
+
+        <!-- Cédula con validación ecuatoriana -->
+        <div class="col-md-6">
+          <label class="form-label form-label-tuti">Cédula de identidad *</label>
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control form-control-tuti"
+              [class.is-invalid]="mostrarError('cedula')"
+              [class.is-valid]="form.get('cedula')?.valid && form.get('cedula')?.touched"
+              formControlName="cedula"
+              placeholder="1712345678"
+              maxlength="10"
+            />
+            <!-- Ícono de verificación -->
+            @if (form.get('cedula')?.valid && form.get('cedula')?.touched) {
+              <span class="input-group-text text-success">
+                <i class="bi bi-check-circle-fill"></i>
+              </span>
+            }
+          </div>
+          @if (mostrarError('cedula')) {
+            <div class="invalid-feedback d-block">
+              {{ getError('cedula') }}
+            </div>
+          }
+          <div class="form-text">10 dígitos. Se verifica el dígito de control del Registro Civil.</div>
+        </div>
+
+      </div>
+
+      <!-- Botones de navegación -->
+      <div class="d-flex justify-content-between mt-4">
+        <button type="button" class="btn btn-outline-secondary" (click)="anterior.emit()">
+          <i class="bi bi-arrow-left me-1"></i> Volver
+        </button>
+        <button type="submit" class="btn btn-tuti-naranja">
+          Continuar <i class="bi bi-arrow-right ms-1"></i>
+        </button>
+      </div>
+
+    </form>

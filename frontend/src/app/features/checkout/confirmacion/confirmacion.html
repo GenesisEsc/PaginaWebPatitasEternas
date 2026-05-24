@@ -1,0 +1,34 @@
+    <div class="container py-5">
+      <div class="confirmacion-card mx-auto">
+
+        <!-- Ícono de éxito animado -->
+        <div class="confirmacion-icono">
+          <i class="bi bi-check-circle-fill"></i>
+        </div>
+
+        <!-- Título -->
+        <h2 class="confirmacion-titulo">¡Gracias por tu compra!</h2>
+        <p class="text-muted mb-1">Tu pedido ha sido registrado exitosamente.</p>
+        <p class="text-muted">
+          Número de pedido:
+          <strong class="text-azul">#{{ numeroPedido }}</strong>
+        </p>
+
+        <!-- Fecha -->
+        <p class="text-muted mb-4">
+          <i class="bi bi-calendar3 me-1"></i>
+          {{ fechaActual | date:'dd/MM/yyyy HH:mm' }}
+        </p>
+
+        <!-- Acciones -->
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+          <button class="btn btn-imprimir" (click)="imprimirRecibo()">
+            <i class="bi bi-printer me-2"></i> Imprimir recibo
+          </button>
+          <a routerLink="/catalogo" class="btn btn-seguir">
+            <i class="bi bi-shop me-2"></i> Seguir comprando
+          </a>
+        </div>
+
+      </div>
+    </div>
