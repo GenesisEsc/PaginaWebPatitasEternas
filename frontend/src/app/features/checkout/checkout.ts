@@ -50,11 +50,15 @@ export class CheckoutComponent {
   }
 
   confirmarPedido(): void {
-      console.log('Payload enviado:', JSON.stringify(this.datosPedido())); // ← agrega esto
+    console.log('Payload enviado:', JSON.stringify(this.datosPedido()));
 
     this.cartService.finalizarCompra(this.datosPedido()).subscribe({
       next: (respuesta: any) => {
         this.cartService.guardarYVaciar();
+      
+        // Guardamos los datos en el navegador para que el PDF los encuentre
+        localStorage.setItem('cliente', JSON.stringify(this.datosPedido()));
+
         this.router.navigate(['/confirmacion']);
       },
       error: (error: any) => {

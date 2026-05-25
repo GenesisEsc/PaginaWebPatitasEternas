@@ -1,55 +1,28 @@
-    .confirmacion-card {
-      background: white;
-      border-radius: 16px;
-      box-shadow: var(--tuti-sombra);
-      padding: 48px 32px;
-      text-align: center;
-      max-width: 480px;
-    }
+.card {
+  transition: all 0.3s ease-in-out;
+}
 
-    /* Ícono verde grande con animación de escala */
-    .confirmacion-icono {
-      font-size: 5rem;
-      color: #198754;
-      margin-bottom: 16px;
-      animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-    }
+.table tbody tr {
+  transition: background-color 0.2s ease;
+}
 
-    @keyframes popIn {
-      from { transform: scale(0); opacity: 0; }
-      to   { transform: scale(1); opacity: 1; }
-    }
+.table tbody tr:hover {
+  background-color: rgba(141, 135, 129, 0.05) !important;
+}
 
-    .confirmacion-titulo {
-      font-weight: 700;
-      color: var(--tuti-azul);
-      margin-bottom: 8px;
-    }
+.btn-naranja {
+  background-color: var(--tuti-naranja) !important;
+  color: var(--tuti-blanco) !important;
+  transition: all 0.2s ease;
+}
 
-    .text-azul { color: var(--tuti-azul); }
+.btn-naranja:hover {
+  background-color: var(--tuti-naranja-dark) !important;
+  transform: translateY(-2px);
+}
 
-    .btn-imprimir {
-      background: var(--tuti-azul);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      padding: 10px 24px;
-    }
-    .btn-imprimir:hover {
-      background: var(--tuti-azul-dark);
-      color: white;
-    }
-
-    .btn-seguir {
-      background: var(--tuti-naranja);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      padding: 10px 24px;
-    }
-    .btn-seguir:hover {
-      background: var(--tuti-naranja-dark);
-      color: white;
-    }
+a.btn:hover {
+  background-color: var(--tuti-gris-claro) !important;
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+}
