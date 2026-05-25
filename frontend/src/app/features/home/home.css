@@ -1,15 +1,15 @@
     /* Colores locales por si no están en tu :root */
-    .text-tuti-azul { color: var(--tuti-azul, #003DA5); }
-    .text-tuti-naranja { color: var(--tuti-naranja, #F26522); }
-    .text-tuti-prueba { color: var(--tuti-amarillo, #f2d322); }
+    .text-tuti-azul { color: var(--tuti-azul, #785000); }
+    .text-tuti-naranja { color: var(--tuti-naranja, #be3b1dca); }
+    .text-tuti-prueba { color: var(--tuti-amarillo, #eb6280ce); }
     .btn-tuti-naranja { 
-      background-color: var(--tuti-naranja, #F26522); 
+      background-color: var(--tuti-naranja, #cc6a3d); 
       color: rgb(252, 252, 252); 
       border-radius: 30px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .btn-tuti-naranja:hover {
-      background-color: var(--tuti-naranja-dark, #d4541a);
+      background-color: var(--tuti-naranja-dark, #b53827);
       color: white;
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(242, 100, 34, 0.484);
@@ -20,17 +20,17 @@
     
     .hero-section {
     background-image: 
-    linear-gradient(rgba(0, 60, 165, 0.919), rgba(0, 60, 165, 0.36)),
-    url('/assets/local.png');
+    linear-gradient(rgba(217, 162, 44, 0.919), rgba(0, 60, 165, 0.36)),
+    url('/assets/banner.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 400px;
+    min-height: 650px;
     
    }
 
     .hero-content {
-      max-width: 800px;
+      max-width: 900px;
     }
 
     /* Cajas de categoría limpias con hover sutil */
@@ -87,7 +87,7 @@
 
 .banner-tuti {
   position: relative;
-  background: linear-gradient(135deg, #00c6e0ed 0%, #0181ab 50%, #083f9d 100%);
+  background: linear-gradient(135deg, #e3bd8e62 0%, #a47c3597 50%, #624a256c 100%);
   min-height: 400px;
   display: flex;
   align-items: center;
@@ -118,7 +118,7 @@
 .banner-titulo {
   font-size: 3rem;
   font-weight: 800;
-  color: #003DA5;
+  color: #cc5b2e;
   line-height: 1.1;
   margin-bottom: 0.5rem;
 }
@@ -132,8 +132,8 @@
 
 .btn-banner {
   display: inline-block;
-  background-color: #FACC15;
-  color: #003DA5;
+  background-color: #89560e;
+  color: #a58100;
   font-weight: 800;
   font-size: 1rem;
   padding: 0.75rem 2rem;

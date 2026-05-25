@@ -1,18 +1,36 @@
 <section class="hero-section text-center text-white d-flex align-items-center justify-content-center">
-  <div class="hero-content p-4">
+  <div class="hero-content p-2">
     <h1 class="display-4 fw-bold mb-3">
-      <span class="typing-text">La calidad cuesta menos...</span>
+      <span class="typing-text">Patitas Eternas</span>
+      <p class="banner-subtitulo">Detalles que convierten amor en recuerdos inolvidables.</p>
+
     </h1>
     <br>
-    <br>
     <a routerLink="/catalogo" class="btn btn-tuti-naranja btn-lg px-5 py-3 fw-bold hero-btn">
-      Ver Catálogo Completo <i class="bi bi-arrow-right ms-2"></i>
+      Crear Kit Personalizado <i class="bi bi-arrow-right ms-2"></i>
     </a>
   </div>
 </section>
 
+<section class="banner-tuti">
+  <div class="banner-contenido">
+    <div class="banner-texto">
+      <h2 class="banner-titulo">Amor que llega a casa</h2>
+      <p class="banner-subtitulo">Creemos que las memorias más hermosas merecen ser sentidas, no solo recordadas. 
+    Patitas Eternas es un espacio dedicado a celebrar la vida y el legado de tus mascotas a través de detalles inolvidables. 
+    Con nuestras velas, aromas personalizados y certificados, transformamos la nostalgia en un homenaje de amor infinito. 
+    Queremos que la esencia de tu mejor amigo te acompañe siempre, paso a paso.</p>
+
+      <a routerLink="/locales" class="btn-banner">
+       Envíos a Quito, Guayaquil y Cuenca
+      </a>
+    </div>
+  </div>
+  <img src="assets/persona.png" alt="TuTi" class="banner-imagen">
+</section>
+
 <section class="container my-5 text-center">
-  <h3 class="mb-4 text-tuti-azul fw-bold">Explora por Categorías</h3>
+  <h3 class="mb-4 text-tuti-azul fw-bold">Explora nuestros productos</h3>
 
   @if (categorias().length === 0) {
     <div class="text-center py-3">
@@ -33,17 +51,56 @@
   }
 </section>
 
-<section class="banner-tuti">
-  <div class="banner-contenido">
-    <div class="banner-texto">
-      <h2 class="banner-titulo">Bienvenido a TuTi</h2>
-      <p class="banner-subtitulo">Alto en calidad, bajo en precios</p>
-      <a routerLink="/locales" class="btn-banner">
-        📍 Encuentra tu TuTi más cercano
+
+<section class="container my-5">
+  <div class="card border-0 shadow-sm" style="background-color: #95959541; border-radius: 1.5rem;">
+    <div class="card-body p-5 text-center">
+      
+      <h2 class="text-tuti-azul fw-bold mb-3">Diseña el Aroma de su Recuerdo</h2>
+      <p class="lead mb-5 text-secondary">
+        ¿Extrañas ese olorcito único de su cabecita o sus patitas? O tal vez quieres un perfume que refleje su personalidad activa o relajada.
+      </p>
+
+      <div class="row g-4 mb-5 text-start">
+        
+        <div class="col-md-4">
+          <div class="p-4 bg-white h-100 shadow-sm" style="border-radius: 1rem;">
+            <div class="d-flex align-items-center mb-3">
+              <span class="badge bg-warning text-dark fs-5 me-2 rounded-circle">1</span>
+              <h5 class="fw-bold text-tuti-azul mb-0">La Base</h5>
+            </div>
+            <p class="mb-0 text-muted">Elige la base de la fragancia (Dulce, Amaderada, Cítrica o Floral).</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="p-4 bg-white h-100 shadow-sm" style="border-radius: 1rem;">
+            <div class="d-flex align-items-center mb-3">
+              <span class="badge bg-warning text-dark fs-5 me-2 rounded-circle">2</span>
+              <h5 class="fw-bold text-tuti-azul mb-0">Personalidad</h5>
+            </div>
+            <p class="mb-0 text-muted">Cuéntanos su personalidad (¿Era juguetón, dormilón o el guardián de la casa?).</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="p-4 bg-white h-100 shadow-sm" style="border-radius: 1rem;">
+            <div class="d-flex align-items-center mb-3">
+              <span class="badge bg-warning text-dark fs-5 me-2 rounded-circle">3</span>
+              <h5 class="fw-bold text-tuti-azul mb-0">El Detalle</h5>
+            </div>
+            <p class="mb-0 text-muted">Recibe tu fragancia personalizada con su nombre en la etiqueta.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <a routerLink="/personalizar-aroma" class="btn btn-tuti-naranja btn-lg px-5 py-3 fw-bold rounded-pill">
+        Configurar Mi Fragancia Ahora <i class="bi bi-magic ms-2"></i>
       </a>
+
     </div>
   </div>
-  <img src="assets/personatuti.png" alt="TuTi" class="banner-imagen">
 </section>
 
 <section class="container my-5 pb-5">
@@ -51,6 +108,7 @@
     <h3 class="text-tuti-azul fw-bold mb-0">Productos Destacados 🌟</h3>
     <a routerLink="/catalogo" class="text-tuti-naranja fw-bold text-decoration-none">Ver todos</a>
   </div>
+
 
   @if (cargando()) {
     <div class="text-center py-5">
