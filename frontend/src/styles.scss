@@ -2,36 +2,41 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
-/* ========================================
-   VARIABLES INSTITUCIONALES TUTI
-   Colores: Naranja (#F26522) + Azul (#003DA5)
-======================================== */
 :root {
-  --tuti-naranja:    #FACC15;
-  --tuti-naranja-dark: #de6f20;
-  --tuti-azul:        #003DA5;
-  --tuti-azul-dark:   #002d7a;
-  --tuti-gris-claro:  #f8f8f8;
-  --tuti-gris:        #6c757d;
-  --tuti-blanco:      #ffffff;
-  --tuti-sombra:      0 2px 12px rgba(0, 0, 0, 0.10);
-  --tuti-radio:       12px;
+  /* Tonos cálidos y amarillos para la identidad de la marca */
+  --tuti-naranja:       #905814b4; /* Amarillo cálido y suave, aporta luz y esperanza */
+  --tuti-naranja-dark:  #6f3311ac; /* Amarillo un poco más oscuro para efectos hover */
+  
+  /* Tonos serenos para confianza y calma */
+  --tuti-azul:          #4a558c; /* Azul cielo pastel, muy tranquilo y etéreo */
+  --tuti-azul-dark:     #3e5263; /* Azul más profundo para textos y contrastes legibles */
+  
+  /* Bases neutras y cálidas */
+  --tuti-gris-claro:    #FDFBF7; /* Un blanco hueso/crema muy suave en lugar de gris frío */
+  --tuti-gris:          #8D8781; /* Gris topo cálido para textos secundarios */
+  --tuti-blanco:        #ffffff;
+  
+  /* Sombras y bordes más suaves y redondeados */
+  --tuti-sombra:        0 4px 15px rgba(123, 164, 198, 0.15); /* Sombra ligeramente azulada */
+  --tuti-radio:         16px; /* Bordes un poquito más redondos para dar sensación de suavidad */
 }
 
 /* Reset / base */
-
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Lora', serif; /* Para textos generales, descripciones y pasos */
   background-color: var(--tuti-gris-claro);
-  color: #2d2d2d;
+  color: #4A4540; /* Un tono café/grisáceo oscuro en vez de negro puro para suavizar la lectura */
   padding-top: 30px;
 }
-
+h1, h2, h3, h4, h5, h6, .banner-titulo {
+  font-family: 'Playfair Display', serif; /* Solo para títulos y destacados */
+}
 a {
-  color: var(--tuti-azul);
+  color: var(--tuti-azul-dark);
   text-decoration: none;
+  transition: color 0.3s ease; /* Transición suave para los enlaces */
 }
 
 a:hover {
-  color: var(--tuti-naranja);
-}/* You can add global styles to this file, and also import other style files */
+  color: var(--tuti-naranja-dark);
+}

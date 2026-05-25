@@ -1,231 +1,232 @@
-<div class="container-fluid py-5 bg-light">
-  <div class="container my-3">
-    
-    <h1 class="anton-titles text-center mb-5" style="color: var(--tuti-azul); font-size: 3rem; text-transform: uppercase;">
-      Personaliza tu Kit Memorial
+<div class="container py-5" style="background-color: var(--tuti-gris-claro); min-height: 100vh;">
+  
+  <div class="text-center mb-5 p-4">
+    <h1 class="mb-3" style="font-family: 'Playfair Display', serif; font-weight: 700; color: var(--tuti-azul-dark); font-size: 3.5rem;">
+      Arma tu Kit Memorial
     </h1>
+    <p class="fs-4 mx-auto" style="font-family: 'Lora', serif; color: var(--tuti-gris); max-width: 700px;">
+      Cada mascota deja una huella eterna. Selecciona con amor los detalles para honrar el recuerdo de tu mejor amigo.
+    </p>
+  </div>
 
-    <div class="row g-4">
+  <div class="row g-5">
 
-      <div class="col-lg-8">
-        
-        <div class="card mb-4 shadow-sm border-0 bg-white p-3" style="border-radius: 15px;">
-          <div class="card-header bg-white d-flex justify-content-between align-items-center border-0 py-3">
-            <h4 class="mb-0 fw-bold" style="color: var(--tuti-azul);">
-              <i class="bi bi-droplet-fill me-2" style="color: #6a1b9a;"></i>1. Perfume Personalizado
-            </h4>
-            <div class="form-check form-switch fs-5 d-flex align-items-center">
-              <label class="form-check-label me-3 text-muted fw-normal" style="font-size: 0.9rem;" for="switchPerfume">Añadir a mi kit</label>
-              <input class="form-check-input" type="checkbox" id="switchPerfume" [(ngModel)]="incluyePerfume" (change)="actualizarPrecio()" style="cursor: pointer;">
-              <span class="text-success fw-bold ms-3" style="font-size: 1.1rem;">(+$5.00)</span>
+    <div class="col-lg-8">
+      
+      <div class="card mb-5" style="background-color: var(--tuti-blanco); border-radius: var(--tuti-radio); box-shadow: var(--tuti-sombra); border: 2px solid transparent; transition: all 0.3s ease;" [style.border-color]="incluyePerfume ? 'var(--tuti-azul)' : 'transparent'">
+        <div class="card-body p-4 p-md-5">
+          <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+            <div class="d-flex align-items-center gap-4">
+              <div class="d-flex align-items-center justify-content-center rounded-circle" style="width: 70px; height: 70px; transition: 0.3s;" [ngStyle]="{'background-color': incluyePerfume ? 'var(--tuti-azul)' : 'var(--tuti-gris-claro)', 'color': incluyePerfume ? 'var(--tuti-blanco)' : 'var(--tuti-azul)'}">
+                <i class="bi bi-droplet-fill fs-2"></i>
+              </div>
+              <div>
+                <h3 class="mb-1" style="font-family: 'Playfair Display', serif; font-weight: 600; color: var(--tuti-azul-dark);">1. Perfume Personalizado</h3>
+                <p class="mb-0" style="font-family: 'Lora', serif; color: var(--tuti-gris);">Una fragancia especial para recordar.</p>
+              </div>
             </div>
+            <button class="btn px-4 py-2" style="border-radius: var(--tuti-radio); font-family: 'Lora', serif; font-weight: 600; transition: 0.3s; font-size: 1.1rem;" [ngStyle]="{'background-color': incluyePerfume ? 'transparent' : 'var(--tuti-naranja)', 'color': incluyePerfume ? 'var(--tuti-naranja-dark)' : 'var(--tuti-blanco)', 'border': incluyePerfume ? '2px solid var(--tuti-naranja)' : '2px solid transparent'}" (click)="incluyePerfume = !incluyePerfume; actualizarPrecio()">
+              {{ incluyePerfume ? 'Quitar del kit' : 'Añadir (+$5.00)' }}
+            </button>
+          </div>
+
+          <div *ngIf="incluyePerfume" class="mt-4 pt-4" style="border-top: 1px solid rgba(141, 135, 129, 0.2);">
+            <div class="mb-4">
+              <h5 style="font-family: 'Playfair Display', serif; color: var(--tuti-azul-dark); font-weight: 600;">Selecciona la Esencia Base:</h5>
+              <div class="row row-cols-2 row-cols-md-5 g-2 mt-2">
+                <div class="col" *ngFor="let esencia of ['Lavanda', 'Manzanilla', 'Rosas', 'Vainilla', 'Jazmín', 'Eucalipto', 'Menta', 'Sándalo', 'Cítricos', 'Canela']">
+                  <div class="text-center py-2 px-1 rounded-3" (click)="perfumeBase = esencia" style="cursor: pointer; transition: 0.2s; font-family: 'Lora', serif; font-size: 0.95rem;"
+                       [ngStyle]="{'background-color': perfumeBase === esencia ? 'var(--tuti-gris-claro)' : 'var(--tuti-blanco)', 'border': perfumeBase === esencia ? '2px solid var(--tuti-azul)' : '1px solid rgba(141, 135, 129, 0.2)', 'color': perfumeBase === esencia ? 'var(--tuti-azul-dark)' : 'inherit'}">
+                    {{esencia}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h5 style="font-family: 'Playfair Display', serif; color: var(--tuti-azul-dark); font-weight: 600;">Color del Perfume:</h5>
+              <div class="d-flex flex-wrap gap-3 mt-3">
+                <div *ngFor="let color of [
+                  {name: 'Morado', hex: '#ce93d8'}, 
+                  {name: 'Azul', hex: '#90caf9'}, 
+                  {name: 'Verde', hex: '#a5d6a7'}, 
+                  {name: 'Amarillo', hex: '#fff59d'}, 
+                  {name: 'Rojo', hex: '#ef9a9a'}, 
+                  {name: 'Tomate', hex: '#ffcc80'}
+                ]" 
+                     class="rounded-circle shadow-sm position-relative" (click)="perfumeColor = color.name"
+                     [style.background-color]="color.hex" style="width: 50px; height: 50px; cursor: pointer; transition: 0.2s;"
+                     [ngStyle]="{'border': perfumeColor === color.name ? '3px solid var(--tuti-azul)' : '2px solid var(--tuti-blanco)'}"
+                     [title]="color.name">
+                </div>
+              </div>
+              <p class="mt-2 mb-0 small text-muted" style="font-family: 'Lora', serif;">Seleccionado: <strong>{{perfumeColor}}</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-5" style="background-color: var(--tuti-blanco); border-radius: var(--tuti-radio); box-shadow: var(--tuti-sombra); border: 2px solid transparent; transition: all 0.3s ease;" [style.border-color]="incluyeVela ? 'var(--tuti-azul)' : 'transparent'">
+        <div class="card-body p-4 p-md-5">
+          <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+            <div class="d-flex align-items-center gap-4">
+              <div class="d-flex align-items-center justify-content-center rounded-circle" style="width: 70px; height: 70px; transition: 0.3s;" [ngStyle]="{'background-color': incluyeVela ? 'var(--tuti-azul)' : 'var(--tuti-gris-claro)', 'color': incluyeVela ? 'var(--tuti-blanco)' : 'var(--tuti-azul)'}">
+                <i class="bi bi-fire fs-2"></i>
+              </div>
+              <div>
+                <h3 class="mb-1" style="font-family: 'Playfair Display', serif; font-weight: 600; color: var(--tuti-azul-dark);">2. Vela Conmemorativa</h3>
+                <p class="mb-0" style="font-family: 'Lora', serif; color: var(--tuti-gris);">Luz y calidez para su recuerdo.</p>
+              </div>
+            </div>
+            <button class="btn px-4 py-2" style="border-radius: var(--tuti-radio); font-family: 'Lora', serif; font-weight: 600; transition: 0.3s; font-size: 1.1rem;" [ngStyle]="{'background-color': incluyeVela ? 'transparent' : 'var(--tuti-naranja)', 'color': incluyeVela ? 'var(--tuti-naranja-dark)' : 'var(--tuti-blanco)', 'border': incluyeVela ? '2px solid var(--tuti-naranja)' : '2px solid transparent'}" (click)="incluyeVela = !incluyeVela; actualizarPrecio()">
+              {{ incluyeVela ? 'Quitar del kit' : 'Añadir (+$3.00)' }}
+            </button>
+          </div>
+
+          <div *ngIf="incluyeVela" class="mt-4 pt-4" style="border-top: 1px solid rgba(141, 135, 129, 0.2);">
+            <div class="mb-4">
+              <h5 style="font-family: 'Playfair Display', serif; color: var(--tuti-azul-dark); font-weight: 600;">Aroma de la Vela:</h5>
+              <div class="row row-cols-2 row-cols-md-5 g-2 mt-2">
+                <div class="col" *ngFor="let aroma of ['Vainilla', 'Canela', 'Lavanda', 'Coco', 'Café', 'Manzana-Canela', 'Sándalo', 'Miel', 'Chocolate', 'Romero']">
+                  <div class="text-center py-2 px-1 rounded-3" (click)="velaAroma = aroma" style="cursor: pointer; transition: 0.2s; font-family: 'Lora', serif; font-size: 0.95rem;"
+                       [ngStyle]="{'background-color': velaAroma === aroma ? 'var(--tuti-gris-claro)' : 'var(--tuti-blanco)', 'border': velaAroma === aroma ? '2px solid var(--tuti-azul)' : '1px solid rgba(141, 135, 129, 0.2)', 'color': velaAroma === aroma ? 'var(--tuti-azul-dark)' : 'inherit'}">
+                    {{aroma}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h5 style="font-family: 'Playfair Display', serif; color: var(--tuti-azul-dark); font-weight: 600;">Color Pastel de la Cera:</h5>
+              <div class="d-flex flex-wrap gap-3 mt-3">
+                <div *ngFor="let color of [
+                  {name: 'Blanco', hex: '#fafafa'}, 
+                  {name: 'Verde', hex: '#e8f5e9'}, 
+                  {name: 'Tomate', hex: '#fff3e0'}, 
+                  {name: 'Azul', hex: '#e3f2fd'}, 
+                  {name: 'Morado', hex: '#f3e5f5'}, 
+                  {name: 'Rosado', hex: '#fce4ec'},
+                  {name: 'Negro', hex: '#cfd8dc'}
+                ]" 
+                     class="rounded-circle shadow-sm" (click)="velaColor = color.name"
+                     [style.background-color]="color.hex" style="width: 50px; height: 50px; cursor: pointer; transition: 0.2s;"
+                     [ngStyle]="{'border': velaColor === color.name ? '3px solid var(--tuti-naranja)' : '2px solid var(--tuti-blanco)'}"
+                     [title]="color.name">
+                </div>
+              </div>
+              <p class="mt-2 mb-0 small text-muted" style="font-family: 'Lora', serif;">Seleccionado: <strong>{{velaColor}}</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-5" style="background-color: var(--tuti-blanco); border-radius: var(--tuti-radio); box-shadow: var(--tuti-sombra); border: 2px solid transparent; transition: all 0.3s ease;" [style.border-color]="incluyeCertificado ? 'var(--tuti-azul)' : 'transparent'">
+        <div class="card-body p-4 p-md-5">
+          <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+            <div class="d-flex align-items-center gap-4">
+              <div class="d-flex align-items-center justify-content-center rounded-circle" style="width: 70px; height: 70px; transition: 0.3s;" [ngStyle]="{'background-color': incluyeCertificado ? 'var(--tuti-azul)' : 'var(--tuti-gris-claro)', 'color': incluyeCertificado ? 'var(--tuti-blanco)' : 'var(--tuti-azul)'}">
+                <i class="bi bi-card-heading fs-2"></i>
+              </div>
+              <div>
+                <h3 class="mb-1" style="font-family: 'Playfair Display', serif; font-weight: 600; color: var(--tuti-azul-dark);">3. Certificado de Defunción</h3>
+                <p class="mb-0" style="font-family: 'Lora', serif; color: var(--tuti-gris);">Un documento oficial para su memoria.</p>
+              </div>
+            </div>
+            <button class="btn px-4 py-2" style="border-radius: var(--tuti-radio); font-family: 'Lora', serif; font-weight: 600; transition: 0.3s; font-size: 1.1rem;" [ngStyle]="{'background-color': incluyeCertificado ? 'transparent' : 'var(--tuti-naranja)', 'color': incluyeCertificado ? 'var(--tuti-naranja-dark)' : 'var(--tuti-blanco)', 'border': incluyeCertificado ? '2px solid var(--tuti-naranja)' : '2px solid transparent'}" (click)="incluyeCertificado = !incluyeCertificado; actualizarPrecio()">
+              {{ incluyeCertificado ? 'Quitar del kit' : 'Añadir (+$2.00)' }}
+            </button>
           </div>
           
-          <div class="card-body bg-light rounded-3 p-4 mt-2" *ngIf="incluyePerfume" style="border-left: 5px solid var(--tuti-azul);">
-            <div class="mb-4">
-              <label class="form-label fw-bold mb-3" style="color: var(--tuti-azul);">Selecciona la Esencia Base:</label>
-              
-              <div class="d-flex flex-wrap gap-3">
-                <div class="aroma-tile text-center p-3 rounded-3" 
-                     (click)="perfumeBase = 'Lavanda'"
-                     [style.border]="perfumeBase === 'Lavanda' ? '2px solid var(--tuti-azul)' : '1px solid #ddd'"
-                     [style.background-color]="perfumeBase === 'Lavanda' ? '#e1f5fe' : 'white'"
-                     style="cursor: pointer; width: 120px; transition: all 0.2s ease;">
-                  <i class="bi bi-flower1 fs-1" style="color: #9575cd;"></i>
-                  <div class="fw-bold mt-2 text-dark">Lavanda</div>
-                  <i class="bi bi-check-circle-fill text-primary" *ngIf="perfumeBase === 'Lavanda'" style="position: absolute; top: 10px; right: 10px;"></i>
-                </div>
-
-                <div class="aroma-tile text-center p-3 rounded-3" 
-                     (click)="perfumeBase = 'Manzanilla'"
-                     [style.border]="perfumeBase === 'Manzanilla' ? '2px solid var(--tuti-azul)' : '1px solid #ddd'"
-                     [style.background-color]="perfumeBase === 'Manzanilla' ? '#e1f5fe' : 'white'"
-                     style="cursor: pointer; width: 120px; transition: all 0.2s ease; position: relative;">
-                  <i class="bi bi-sun fs-1" style="color: #fbc02d;"></i>
-                  <div class="fw-bold mt-2 text-dark">Manzanilla</div>
-                  <i class="bi bi-check-circle-fill text-primary" *ngIf="perfumeBase === 'Manzanilla'" style="position: absolute; top: 10px; right: 10px;"></i>
-                </div>
-
-                <div class="aroma-tile text-center p-3 rounded-3" 
-                     (click)="perfumeBase = 'Rosas'"
-                     [style.border]="perfumeBase === 'Rosas' ? '2px solid var(--tuti-azul)' : '1px solid #ddd'"
-                     [style.background-color]="perfumeBase === 'Rosas' ? '#e1f5fe' : 'white'"
-                     style="cursor: pointer; width: 120px; transition: all 0.2s ease; position: relative;">
-                  <i class="bi bi-balloon-heart fs-1" style="color: #e91e63;"></i>
-                  <div class="fw-bold mt-2 text-dark">Rosas</div>
-                  <i class="bi bi-check-circle-fill text-primary" *ngIf="perfumeBase === 'Rosas'" style="position: absolute; top: 10px; right: 10px;"></i>
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-2">
-              <label class="form-label fw-bold mb-3" style="color: var(--tuti-azul);">Selecciona el Color del Perfume:</label>
-              
-              <div class="d-flex gap-3">
-                <div class="color-circle rounded-circle" 
-                     (click)="perfumeColor = '#E6E6FA'"
-                     [style.border]="perfumeColor === '#E6E6FA' ? '3px solid var(--tuti-azul)' : '1px solid #ddd'"
-                     style="width: 50px; height: 50px; background-color: #E6E6FA; cursor: pointer; transition: all 0.2s ease;"
-                     title="Lavanda"></div>
-                
-                <div class="color-circle rounded-circle" 
-                     (click)="perfumeColor = '#FFB6C1'"
-                     [style.border]="perfumeColor === '#FFB6C1' ? '3px solid var(--tuti-azul)' : '1px solid #ddd'"
-                     style="width: 50px; height: 50px; background-color: #FFB6C1; cursor: pointer; transition: all 0.2s ease;"
-                     title="Rosa Suave"></div>
-                
-                <div class="color-circle rounded-circle" 
-                     (click)="perfumeColor = '#87CEFA'"
-                     [style.border]="perfumeColor === '#87CEFA' ? '3px solid var(--tuti-azul)' : '1px solid #ddd'"
-                     style="width: 50px; height: 50px; background-color: #87CEFA; cursor: pointer; transition: all 0.2s ease;"
-                     title="Celeste Cielo"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card mb-4 shadow-sm border-0 bg-white p-3" style="border-radius: 15px;">
-          <div class="card-header bg-white d-flex justify-content-between align-items-center border-0 py-3">
-            <h4 class="mb-0 fw-bold" style="color: var(--tuti-azul);"><i class="bi bi-fire me-2" style="color: var(--tuti-yellow);"></i>2. Vela Conmemorativa</h4>
-            <div class="form-check form-switch fs-5 d-flex align-items-center">
-              <label class="form-check-label me-3 text-muted fw-normal" style="font-size: 0.9rem;" for="switchVela">Añadir a mi kit</label>
-              <input class="form-check-input" type="checkbox" id="switchVela" [(ngModel)]="incluyeVela" (change)="actualizarPrecio()" style="cursor: pointer;">
-              <span class="text-success fw-bold ms-3" style="font-size: 1.1rem;">(+$3.00)</span>
-            </div>
-          </div>
-          <div class="card-body bg-light rounded-3 p-4 mt-2" *ngIf="incluyeVela" style="border-left: 5px solid var(--tuti-yellow);">
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label class="form-label fw-bold mb-3" style="color: var(--tuti-azul);">Selecciona el Aroma de la Vela:</label>
-                
-                <div class="d-flex gap-3">
-                  <div class="aroma-tile text-center p-3 rounded-3" 
-                       (click)="velaAroma = 'Vainilla'"
-                       [style.border]="velaAroma === 'Vainilla' ? '2px solid var(--tuti-yellow)' : '1px solid #ddd'"
-                       [style.background-color]="velaAroma === 'Vainilla' ? '#fffde7' : 'white'"
-                       style="cursor: pointer; width: 110px; transition: all 0.2s ease; position: relative;">
-                    <i class="bi bi-patch-check-fill fs-2" style="color: #fbc02d;"></i>
-                    <div class="fw-bold mt-2 text-dark">Vainilla</div>
-                    <i class="bi bi-check-circle-fill" style="color: var(--tuti-yellow); position: absolute; top: 10px; right: 10px;" *ngIf="velaAroma === 'Vainilla'"></i>
-                  </div>
-                  
-                  <div class="aroma-tile text-center p-3 rounded-3" 
-                       (click)="velaAroma = 'Canela'"
-                       [style.border]="velaAroma === 'Canela' ? '2px solid var(--tuti-yellow)' : '1px solid #ddd'"
-                       [style.background-color]="velaAroma === 'Canela' ? '#fffde7' : 'white'"
-                       style="cursor: pointer; width: 110px; transition: all 0.2s ease; position: relative;">
-                    <i class="bi bi-tree-fill fs-2" style="color: #bf360c;"></i>
-                    <div class="fw-bold mt-2 text-dark">Canela</div>
-                    <i class="bi bi-check-circle-fill" style="color: var(--tuti-yellow); position: absolute; top: 10px; right: 10px;" *ngIf="velaAroma === 'Canela'"></i>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="col-md-6 mb-3">
-                <label class="form-label fw-bold mb-3" style="color: var(--tuti-azul);">Color de la Vela:</label>
-                <div class="d-flex gap-3">
-                  <div class="color-circle rounded-circle" 
-                       (click)="velaColor = '#f5f5f5'"
-                       [style.border]="velaColor === '#f5f5f5' ? '3px solid var(--tuti-yellow)' : '1px solid #ddd'"
-                       style="width: 50px; height: 50px; background-color: #f5f5f5; cursor: pointer;"
-                       title="Blanco"></div>
-                  
-                  <div class="color-circle rounded-circle" 
-                       (click)="velaColor = '#fff9c4'"
-                       [style.border]="velaColor === '#fff9c4' ? '3px solid var(--tuti-yellow)' : '1px solid #ddd'"
-                       style="width: 50px; height: 50px; background-color: #fff9c4; cursor: pointer;"
-                       title="Amarillo Tenue"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card mb-4 shadow-sm border-0 bg-white p-3" style="border-radius: 15px;">
-          <div class="card-header bg-white d-flex justify-content-between align-items-center border-0 py-3">
-            <h4 class="mb-0 fw-bold" style="color: var(--tuti-azul);"><i class="bi bi-card-text me-2" style="color: var(--tuti-azul);"></i>3. Certificado de Defunción</h4>
-            <div class="form-check form-switch fs-5 d-flex align-items-center">
-              <label class="form-check-label me-3 text-muted fw-normal" style="font-size: 0.9rem;" for="switchCertificado">Añadir a mi kit</label>
-              <input class="form-check-input" type="checkbox" id="switchCertificado" [(ngModel)]="incluyeCertificado" (change)="actualizarPrecio()" style="cursor: pointer;">
-              <span class="text-success fw-bold ms-3" style="font-size: 1.1rem;">(+$2.00)</span>
-            </div>
-          </div>
-          <div class="card-body bg-light rounded-3 p-4 mt-2" *ngIf="incluyeCertificado" style="border-left: 5px solid var(--tuti-azul);">
+          <div *ngIf="incluyeCertificado" class="mt-4 pt-4" style="border-top: 1px solid rgba(141, 135, 129, 0.2);">
             <div class="row g-4">
               <div class="col-12">
-                <label class="form-label fw-bold text-dark">Nombre de tu Mascota:</label>
-                <input type="text" class="form-control form-control-tuti p-3 rounded-pill" placeholder="Ej. Firulais" [(ngModel)]="certNombre">
+                <label style="font-family: 'Lora', serif; color: var(--tuti-azul-dark); font-weight: 600;">Nombre de tu Mascota:</label>
+                <input type="text" class="form-control p-3 mt-2" placeholder="Escribe su nombre aquí..." [(ngModel)]="certNombre" style="border-radius: 12px; border: 1px solid rgba(141, 135, 129, 0.3); font-family: 'Lora', serif; color: var(--tuti-azul-dark); background-color: var(--tuti-gris-claro);">
               </div>
               <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Fecha de Nacimiento:</label>
-                <input type="date" class="form-control form-control-tuti p-3 rounded-pill" [(ngModel)]="certNacimiento">
+                <label style="font-family: 'Lora', serif; color: var(--tuti-azul-dark); font-weight: 600;">Fecha de Nacimiento:</label>
+                <input type="date" class="form-control p-3 mt-2" [(ngModel)]="certNacimiento" style="border-radius: 12px; border: 1px solid rgba(141, 135, 129, 0.3); font-family: 'Lora', serif; color: var(--tuti-azul-dark); background-color: var(--tuti-gris-claro);">
               </div>
               <div class="col-md-6">
-                <label class="form-label fw-bold text-dark">Fecha de Defunción:</label>
-                <input type="date" class="form-control form-control-tuti p-3 rounded-pill" [(ngModel)]="certDefuncion">
+                <label style="font-family: 'Lora', serif; color: var(--tuti-azul-dark); font-weight: 600;">Fecha de Defunción:</label>
+                <input type="date" class="form-control p-3 mt-2" [(ngModel)]="certDefuncion" style="border-radius: 12px; border: 1px solid rgba(141, 135, 129, 0.3); font-family: 'Lora', serif; color: var(--tuti-azul-dark); background-color: var(--tuti-gris-claro);">
               </div>
             </div>
           </div>
         </div>
-
       </div>
-
-      <div class="col-lg-4">
-        <div class="card border-0 shadow sticky-top" style="top: 100px; border-radius: 20px; border: 2px solid var(--tuti-azul);">
-          <div class="card-body p-4">
-            
-            <h4 class="title-bold-blue text-center mb-4 pb-2 border-bottom fw-bold" style="color: var(--tuti-azul);">Desglose del Kit</h4>
-
-            <div class="resumen-container" style="font-size: 1.05rem;">
-              
-              <div class="d-flex justify-content-between mb-3">
-                <span class="text-dark">Kit Memorial Básico:</span>
-                <span class="fw-bold" style="font-family: 'Courier New', monospace;">${{precioBase | number:'1.2-2'}}</span>
-              </div>
-
-              <div *ngIf="incluyePerfume" class="mb-3 ps-3 text-muted" style="font-size: 0.95rem; border-left: 3px solid var(--tuti-azul);">
-                <div class="d-flex justify-content-between text-success">
-                  <span>+ Perfume Personalizado:</span>
-                  <span class="fw-bold" style="font-family: 'Courier New', monospace;">$5.00</span>
-                </div>
-                <div style="font-size: 0.85rem;">Esencia: {{perfumeBase}}</div>
-              </div>
-
-              <div *ngIf="incluyeVela" class="mb-3 ps-3 text-muted" style="font-size: 0.95rem; border-left: 3px solid var(--tuti-yellow);">
-                <div class="d-flex justify-content-between text-success">
-                  <span>+ Vela Conmemorativa:</span>
-                  <span class="fw-bold" style="font-family: 'Courier New', monospace;">$3.00</span>
-                </div>
-                <div style="font-size: 0.85rem;">Aroma: {{velaAroma}}</div>
-              </div>
-
-              <div *ngIf="incluyeCertificado" class="mb-3 ps-3 text-muted" style="font-size: 0.95rem; border-left: 3px solid var(--tuti-azul);">
-                <div class="d-flex justify-content-between text-success">
-                  <span>+ Certificado de Defunción:</span>
-                  <span class="fw-bold" style="font-family: 'Courier New', monospace;">$2.00</span>
-                </div>
-                <div style="font-size: 0.85rem;" *ngIf="certNombre">Para: {{certNombre}}</div>
-              </div>
-
-              <hr class="my-4" style="border-top: 2px dashed #bbb;">
-
-              <div class="d-flex justify-content-between align-items-center mb-5 p-3 rounded-3" style="background-color: #fafafa; border: 1px solid #ddd;">
-                <h5 class="mb-0 fw-bold" style="color: var(--tuti-azul);">Total Final:</h5>
-                <h2 class="mb-0 fw-bold" style="color: var(--tuti-yellow); font-family: 'Anton', sans-serif;">${{precioTotal | number:'1.2-2'}}</h2>
-              </div>
-
-              <button class="btn btn-yellow w-100 py-3 fw-bold rounded-pill shadow d-flex align-items-center justify-content-center gap-2" 
-                      style="font-size: 1.2rem; text-transform: uppercase;"
-                      onclick="alert('Esta función visual se conectará al carrito de la tienda más adelante.')">
-                <i class="bi bi-cart-fill fs-5"></i> Añadir {{ incluyePerfume || incluyeVela || incluyeCertificado ? 'Kit Personalizado' : 'Kit Básico' }}
-              </button>
-              
-            </div>
-
-          </div>
-        </div>
-      </div>
-
     </div>
+
+    <div class="col-lg-4">
+      <div class="card p-4 p-md-5" style="background-color: var(--tuti-blanco); border-radius: var(--tuti-radio); box-shadow: var(--tuti-sombra); border: none; position: sticky; top: 110px;">
+        
+        <h3 class="text-center mb-4 pb-3" style="font-family: 'Playfair Display', serif; color: var(--tuti-azul-dark); font-weight: 700; border-bottom: 1px solid rgba(141, 135, 129, 0.2);">
+          Resumen del Kit
+        </h3>
+
+        <div class="d-flex justify-content-center gap-3 mb-4" *ngIf="incluyePerfume || incluyeVela">
+          <div *ngIf="incluyePerfume" class="text-center">
+            <div class="p-2 mb-2 d-flex justify-content-center align-items-center bg-light" style="width: 95px; height: 95px; border-radius: 12px; border: 1px dashed var(--tuti-azul);">
+              <img [src]="imagenPerfume" alt="Perfume" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+            </div>
+            <small style="font-family: 'Lora', serif; color: var(--tuti-gris); font-size: 0.8rem;">Perfume {{perfumeColor}}</small>
+          </div>
+          
+          <div *ngIf="incluyeVela" class="text-center">
+            <div class="p-2 mb-2 d-flex justify-content-center align-items-center bg-light" style="width: 95px; height: 95px; border-radius: 12px; border: 1px dashed var(--tuti-naranja);">
+              <img [src]="imagenVela" alt="Vela" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+            </div>
+            <small style="font-family: 'Lora', serif; color: var(--tuti-gris); font-size: 0.8rem;">Vela {{velaColor}}</small>
+          </div>
+        </div>
+
+        <div style="font-family: 'Lora', serif; font-size: 1.1rem; color: var(--tuti-azul-dark);">
+          <div class="d-flex justify-content-between mb-3">
+            <span>Kit Memorial Básico:</span>
+            <span style="font-weight: 600;">${{precioBase | number:'1.2-2'}}</span>
+          </div>
+
+          <div *ngIf="incluyePerfume" class="mb-3 ps-3" style="border-left: 3px solid var(--tuti-azul);">
+            <div class="d-flex justify-content-between">
+              <span style="color: var(--tuti-azul); font-weight: 600;">+ Perfume ({{perfumeBase}}):</span>
+              <span style="font-weight: 600; color: var(--tuti-azul);">$5.00</span>
+            </div>
+          </div>
+
+          <div *ngIf="incluyeVela" class="mb-3 ps-3" style="border-left: 3px solid var(--tuti-azul);">
+            <div class="d-flex justify-content-between">
+              <span style="color: var(--tuti-azul); font-weight: 600;">+ Vela ({{velaAroma}}):</span>
+              <span style="font-weight: 600; color: var(--tuti-azul);">$3.00</span>
+            </div>
+          </div>
+
+          <div *ngIf="incluyeCertificado" class="mb-3 ps-3" style="border-left: 3px solid var(--tuti-azul);">
+            <div class="d-flex justify-content-between">
+              <span style="color: var(--tuti-azul); font-weight: 600;">+ Certificado:</span>
+              <span style="font-weight: 600; color: var(--tuti-azul);">$2.00</span>
+            </div>
+            <div style="font-size: 0.85rem; color: var(--tuti-gris);" *ngIf="certNombre">Para: {{certNombre}}</div>
+          </div>
+
+          <hr class="my-4" style="border-color: rgba(141, 135, 129, 0.2);">
+
+          <div class="d-flex justify-content-between align-items-end mb-5">
+            <h5 class="mb-0" style="font-family: 'Playfair Display', serif; color: var(--tuti-azul-dark); font-weight: 600;">Total a pagar:</h5>
+            <h2 class="mb-0" style="font-family: 'Playfair Display', serif; color: var(--tuti-naranja); font-weight: 700; font-size: 2.5rem;">
+              ${{precioTotal | number:'1.2-2'}}
+            </h2>
+          </div>
+
+        <button class="btn w-100 py-3 shadow-sm" 
+          style="background-color: var(--tuti-naranja); color: var(--tuti-blanco); border-radius: var(--tuti-radio); font-family: 'Lora', serif; font-weight: 600; font-size: 1.2rem; border: none; transition: 0.3s;" 
+          onmouseover="this.style.backgroundColor='var(--tuti-naranja-dark)'" 
+          onmouseout="this.style.backgroundColor='var(--tuti-naranja)'"
+          (click)="agregarAlCarrito()">
+          Añadir al Carrito
+        </button>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
