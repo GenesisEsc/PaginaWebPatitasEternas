@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule, DecimalPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../../core/services/cart';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-locales',
@@ -43,26 +44,28 @@ export class LocalesComponent {
 
   // --- FUNCIÓN PARA AÑADIR AL CARRITO REAL ---
   agregarAlCarrito() {
-    // Armamos un título largo para que se vea todo lo que eligió en el carrito
     let nombreDetallado = 'Kit Memorial';
     if (this.incluyePerfume) nombreDetallado += ` (+ Perfume ${this.perfumeBase})`;
     if (this.incluyeVela) nombreDetallado += ` (+ Vela ${this.velaAroma})`;
     if (this.incluyeCertificado && this.certNombre) nombreDetallado += ` (+ Certificado: ${this.certNombre})`;
 
-    // Creamos el producto respetando exactamente la interfaz CartItem de tus compañeros
     const kitProducto = {
-      id: 99, // ID numérico único
+      id: 99, 
       nombre: nombreDetallado,
       precio: this.precioTotal,
-      // Si eligió algo, mostramos esa foto, sino mandamos el logo de Tuti por defecto
-      imagen: this.incluyePerfume ? this.imagenPerfume : (this.incluyeVela ? this.imagenVela : '/assets/logo-tuti.png')
+      imagen: this.incluyePerfume ? this.imagenPerfume : (this.incluyeVela ? this.imagenVela : '/assets/logo.png')
     };
 
-    // Llamamos a la función exacta de tu archivo cart.ts
     this.cartService.agregarProducto(kitProducto); 
 
-    // Confirmación
-    alert('¡Tu Kit Memorial Personalizado ha sido añadido al carrito con éxito!');
+    // --- NUEVO SWEETALERT ---
+    Swal.fire({
+      title: '¡Añadido al Carrito!',
+      text: 'Tu Kit Memorial ha sido guardado exitosamente.',
+      icon: 'success',
+      confirmButtonColor: '#905814', // Color naranja de la marca Patitas Eternas
+      confirmButtonText: 'Aceptar'
+    });
   }
 
   // --- RUTAS DINÁMICAS PARA LAS IMÁGENES ---

@@ -1,34 +1,93 @@
-    <div class="container py-5">
-      <div class="confirmacion-card mx-auto">
-
-        <!-- Ícono de éxito animado -->
-        <div class="confirmacion-icono">
-          <i class="bi bi-check-circle-fill"></i>
+<div class="container py-5 mt-4" style="min-height: 90vh; background-color: var(--tuti-gris-claro);">
+  <div class="row justify-content-center">
+    <div class="col-md-9 col-lg-7">
+      
+      <div class="card border-0 p-4 p-md-5 mb-4" 
+           style="border-radius: var(--tuti-radio); box-shadow: var(--tuti-sombra); background-color: var(--tuti-blanco);">
+        
+        <div class="text-center mb-4">
+          <div class="d-inline-flex align-items-center justify-content-center rounded-circle" 
+               style="width: 90px; height: 90px; background-color: #e8f5e9; color: #2e7d32;">
+            <i class="bi bi-check-all" style="font-size: 3.5rem;"></i>
+          </div>
+          
+          <h1 class="mt-4 mb-2" style="font-family: 'Playfair Display', serif; font-weight: 700; color: var(--tuti-azul-dark); font-size: 2.6rem;">
+            Pedido Confirmado
+          </h1>
+          <p class="fs-5 mx-auto text-muted" style="font-family: 'Lora', serif; max-width: 500px;">
+            Gracias por permitirnos acompañarte a preservar el recuerdo de tu fiel amigo.
+          </p>
         </div>
 
-        <!-- Título -->
-        <h2 class="confirmacion-titulo">¡Gracias por tu compra!</h2>
-        <p class="text-muted mb-1">Tu pedido ha sido registrado exitosamente.</p>
-        <p class="text-muted">
-          Número de pedido:
-          <strong class="text-azul">#{{ numeroPedido }}</strong>
-        </p>
+        <div class="p-4 mb-5 rounded-3 row g-3" 
+             style="background-color: var(--tuti-gris-claro); font-family: 'Lora', serif; border: 1px solid rgba(141, 135, 129, 0.15); margin-left: 0; margin-right: 0;">
+          <div class="col-sm-6">
+            <span class="text-muted d-block small text-uppercase fw-bold tracking-wider">Número de Pedido</span>
+            <strong class="fs-4" style="color: var(--tuti-azul-dark);">#{{ numeroPedido }}</strong>
+            <span class="text-muted d-block small text-uppercase fw-bold tracking-wider mt-3">Fecha de Compra</span>
+            <strong class="fs-6" style="color: var(--tuti-azul-dark);">{{ fechaActual | date:'dd/MM/yyyy HH:mm' }}</strong>
+          </div>
+          <div class="col-sm-6 border-start" style="border-color: rgba(141, 135, 129, 0.2) !important;">
+            <span class="text-muted d-block small text-uppercase fw-bold tracking-wider">Detalles del Cliente</span>
+            <strong class="d-block" style="color: var(--tuti-azul-dark); font-size: 1.1rem;">{{ clienteData.nombre }}</strong>
+            <span *ngIf="clienteData.identificacion" class="text-muted d-block small mt-1">Cédula/RUC: {{ clienteData.identificacion }}</span>
+            <span *ngIf="clienteData.telefono" class="text-muted d-block small">Teléfono: {{ clienteData.telefono }}</span>
+          </div>
+        </div>
 
-        <!-- Fecha -->
-        <p class="text-muted mb-4">
-          <i class="bi bi-calendar3 me-1"></i>
-          {{ fechaActual | date:'dd/MM/yyyy HH:mm' }}
-        </p>
+        <h4 class="mb-3" style="font-family: 'Playfair Display', serif; color: var(--tuti-azul-dark); font-weight: 600;">
+          Detalle del Recibo
+        </h4>
+        <div class="table-responsive mb-5" style="border-radius: 12px; overflow: hidden; border: 1px solid rgba(141, 135, 129, 0.2);">
+          <table class="table table-hover align-middle mb-0" style="font-family: 'Lora', serif;">
+            <thead style="background-color: var(--tuti-azul); color: var(--tuti-blanco);">
+              <tr>
+                <th class="p-3 fs-6 border-0" style="font-weight: 600;">Concepto</th>
+                <th class="p-3 fs-6 text-center border-0" style="font-weight: 600; width: 100px;">Cantidad</th>
+                <th class="p-3 fs-6 text-end border-0" style="font-weight: 600; width: 140px;">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of itemsPedido" style="background-color: var(--tuti-blanco);">
+                <td class="p-3">
+                  <div class="fw-bold" style="color: var(--tuti-azul-dark); font-size: 1.05rem;">
+                    {{ item.nombre }}
+                  </div>
+                </td>
+                <td class="p-3 text-center text-muted fw-bold">{{ item.cantidad }}</td>
+                <td class="p-3 text-end fw-bold" style="color: var(--tuti-azul-dark); font-size: 1.05rem;">
+                  ${{ (item.precio * item.cantidad) | number:'1.2-2' }}
+                </td>
+              </tr>
+              
+              <tr style="background-color: var(--tuti-gris-claro); border-top: 2px solid rgba(141, 135, 129, 0.2);">
+                <td colspan="2" class="p-4 text-end">
+                  <span class="fs-5 fw-bold" style="font-family: 'Playfair Display', serif; color: var(--tuti-azul-dark);">Total Pagado:</span>
+                </td>
+                <td class="p-4 text-end">
+                  <strong class="fs-4" style="font-family: 'Playfair Display', serif; color: var(--tuti-naranja);">
+                    ${{ totalPedido | number:'1.2-2' }}
+                  </strong>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-        <!-- Acciones -->
-        <div class="d-flex gap-3 justify-content-center flex-wrap">
-          <button class="btn btn-imprimir" (click)="imprimirRecibo()">
-            <i class="bi bi-printer me-2"></i> Imprimir recibo
+        <div class="d-flex gap-3 justify-content-center flex-wrap mt-2">
+          <button class="btn btn-naranja px-4 py-3 d-flex align-items-center gap-2 shadow-sm" 
+                  style="border-radius: var(--tuti-radio); font-family: 'Lora', serif; font-weight: 600; font-size: 1.1rem; border: none; min-width: 200px; justify-content: center;"
+                  (click)="imprimirRecibo()">
+            <i class="bi bi-file-earmark-pdf-fill fs-5"></i> Descargar PDF
           </button>
-          <a routerLink="/catalogo" class="btn btn-seguir">
-            <i class="bi bi-shop me-2"></i> Seguir comprando
+          
+          <a routerLink="/" class="btn px-4 py-3 d-flex align-items-center gap-2 shadow-sm" 
+             style="border-radius: var(--tuti-radio); font-family: 'Lora', serif; font-weight: 600; font-size: 1.1rem; border: 2px solid var(--tuti-azul); color: var(--tuti-azul); background-color: transparent; min-width: 200px; justify-content: center;">
+            <i class="bi bi-house-heart fs-5"></i> Volver al Inicio
           </a>
         </div>
 
       </div>
     </div>
+  </div>
+</div>
