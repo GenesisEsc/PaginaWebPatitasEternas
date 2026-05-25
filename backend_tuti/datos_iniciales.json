@@ -3,68 +3,45 @@
   "model": "api.categoria",
   "pk": 1,
   "fields": {
-    "nombre": "Alacena",
-    "descripcion": "Tabla destinada a almacenar la informaci�n de los productos alimenticios disponibles en la despensa."
+    "nombre": "Velas Conmemorativas",
+      "descripcion": "Velas de soya artesanales diseñadas para iluminar su memoria."
   }
 },
 {
   "model": "api.categoria",
   "pk": 2,
   "fields": {
-    "nombre": "Electrodomésticos",
-    "descripcion": "Tabla que registra los dispositivos eléctricos del hogar o establecimiento."
+    "nombre": "Perfumes & Fragancias",
+      "descripcion": "Aromas y lociones con pH apto para recordar su esencia."
   }
 },
 {
   "model": "api.categoria",
   "pk": 3,
   "fields": {
-    "nombre": "Panadería",
-    "descripcion": ""
+    "nombre": "Certificados de Defunción",
+      "descripcion": "Documentos premium editables para honrar su partida."
   }
 },
 {
   "model": "api.categoria",
   "pk": 4,
   "fields": {
-    "nombre": "Mascotas",
-    "descripcion": ""
+    "nombre": "Kit Memorial",
+      "descripcion": "Una caja cuidadosamente preparada para atesorar la esencia de tu mejor amigo. Este kit premium es un abrazo al alma que reúne nuestros detalles más significativos en un solo lugar."
   }
 },
-{
-  "model": "api.categoria",
-  "pk": 6,
-  "fields": {
-    "nombre": "Hogar y Limpieza",
-    "descripcion": ""
-  }
-},
-{
-  "model": "api.categoria",
-  "pk": 7,
-  "fields": {
-    "nombre": "Golosinas y Snacks",
-    "descripcion": ""
-  }
-},
-{
-  "model": "api.categoria",
-  "pk": 8,
-  "fields": {
-    "nombre": "Bebidas y Licores",
-    "descripcion": ""
-  }
-},
+
 {
   "model": "api.producto",
   "pk": 1,
   "fields": {
     "categoria": 1,
-    "nombre": "Naranjilla",
-    "descripcion": "Naranjilla Fresca Para Jugo.",
-    "precio": "3.23",
-    "stock": 489,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/05/7868000969207-1.png",
+    "nombre": "Vela - Huellas en el Alma",
+    "descripcion": "Vela artesanal hecha a mano con cera de soya y un sutil aroma a lavanda para momentos de paz.",
+    "precio": "3.00",
+    "stock": 100,
+    "imagen": "assets/velas/blanca.png",
     "activo": true,
     "fecha_creacion": "2026-04-16T21:01:15.036Z"
   }
@@ -74,11 +51,11 @@
   "pk": 2,
   "fields": {
     "categoria": 1,
-    "nombre": "Desinfectante Antibacterial",
-    "descripcion": "Desinfectante Antibacterial Fragancia Naranja Limon Con Bicarbonato 900 Ml",
-    "precio": "1.77",
+    "nombre": "Vela - Luz de mi Guardián",
+    "descripcion": "Vela de soya artesanal con suave aroma a vainilla. Una luz cálida para honrar a quien siempre cuidó de tu hogar.",
+    "precio": "3.00",
     "stock": 325,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2026/03/7861223825770-1-1.png",
+    "imagen": "assets/velas/azul.png",
     "activo": true,
     "fecha_creacion": "2026-04-16T21:02:20.060Z"
   }
@@ -87,12 +64,12 @@
   "model": "api.producto",
   "pk": 3,
   "fields": {
-    "categoria": 2,
-    "nombre": "Set De Juego Batidora",
-    "descripcion": "Set De Juego Batidora MY LITTLE HOME Incluye Accesorios",
-    "precio": "8.11",
-    "stock": 120,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2024/08/6929800440806-1-4.jpg",
+    "categoria": 1,
+    "nombre": "Vela - Estrella de Atardecer",
+    "descripcion": "Vela aromática con toques de durazno y sándalo. Diseñada para encenderse y recordar los paseos más hermosos al caer el sol.",
+    "precio": "3.00",
+    "stock": 325,
+    "imagen": "assets/velas/morado.png",
     "activo": true,
     "fecha_creacion": "2026-04-16T21:03:50.967Z"
   }
@@ -101,12 +78,12 @@
   "model": "api.producto",
   "pk": 4,
   "fields": {
-    "categoria": 2,
-    "nombre": "Sartén Eléctrico",
-    "descripcion": "Sartén Eléctrico Modelo DEP3650 DAEWOO 120V",
-    "precio": "34.50",
-    "stock": 96,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2024/08/4895155632932-1-9.jpg",
+    "categoria": 1,
+    "nombre": "Vela - Latido Eterno",
+    "descripcion": "Vela con mecha de madera que cruje suavemente al arder, evocando la tranquilidad de su compañía.",
+    "precio": "3.00",
+    "stock": 325,
+    "imagen": "assets/velas/negro.png",
     "activo": true,
     "fecha_creacion": "2026-04-16T21:04:51.990Z"
   }
@@ -115,12 +92,12 @@
   "model": "api.producto",
   "pk": 5,
   "fields": {
-    "categoria": 3,
-    "nombre": "Bizcotelas",
-    "descripcion": "Galletas dulces, ligeras y esponjosas, reconocidas por su forma alargada y extremos redondeados.",
-    "precio": "1.69",
-    "stock": 19,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/07/7861006722326-1-11.jpg",
+    "categoria": 1,
+    "nombre": "Vela - Susurro de Ángeles",
+    "descripcion": "Vela con aroma a algodón y brisa fresca, creada para iluminar esos momentos donde más extrañas su presencia.",
+    "precio": "3.00",
+    "stock": 325,
+    "imagen": "assets/velas/rosado.png",
     "activo": true,
     "fecha_creacion": "2026-04-17T23:44:04.130Z"
   }
@@ -129,12 +106,12 @@
   "model": "api.producto",
   "pk": 6,
   "fields": {
-    "categoria": 3,
-    "nombre": "Tortillas clasicas",
-    "descripcion": "Tortillas de harina de trigo, prácticas para preparar quesadillas",
-    "precio": "1.49",
-    "stock": 20,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2024/08/7861009944893-1-2.jpg",
+    "categoria": 1,
+    "nombre": "Vela - Dulce Amor",
+    "descripcion": "Vela relajante con notas de lavanda y manzanilla, perfecta para rememorar las tardes de siesta a tu lado.",
+    "precio": "3.00",
+    "stock": 325,
+    "imagen": "assets/velas/tomate.png",
     "activo": true,
     "fecha_creacion": "2026-04-17T23:45:52.283Z"
   }
@@ -143,12 +120,12 @@
   "model": "api.producto",
   "pk": 7,
   "fields": {
-    "categoria": 3,
-    "nombre": "Pan Molde Sin Corteza",
-    "descripcion": "Pan Blanco Blanco Sin Corteza SUPÁN Funda – SUPÁN",
-    "precio": "1.99",
-    "stock": 15,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2024/08/7861009944275-1-15.jpg",
+    "categoria": 1,
+    "nombre": "Vela - Compañero Fiel",
+    "descripcion": "Vela de larga duración con esencia de jazmín. Un destello de paz que conecta tu corazón con el suyo.",
+    "precio": "3.00",
+    "stock": 325,
+    "imagen": "assets/velas/verde.png",
     "activo": true,
     "fecha_creacion": "2026-04-17T23:48:15.942Z"
   }
@@ -157,12 +134,12 @@
   "model": "api.producto",
   "pk": 8,
   "fields": {
-    "categoria": 3,
-    "nombre": "Pan Briollo",
-    "descripcion": "Pan esponjoso tipo mini hot dog.",
-    "precio": "0.99",
-    "stock": 20,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/06/7861009944121-1-8.jpg",
+    "categoria": 2,
+      "nombre": "Perfume - Brisa de Amor",
+      "descripcion": "Fragancia delicada con notas de manzanilla, ideal para recordar su olorcito único.",
+      "precio": "5.00",
+      "stock": 180,
+      "imagen": "assets/perfumes/amarillo.png",
     "activo": true,
     "fecha_creacion": "2026-04-17T23:49:59.573Z"
   }
@@ -171,12 +148,12 @@
   "model": "api.producto",
   "pk": 9,
   "fields": {
-    "categoria": 4,
-    "nombre": "Alimento Para Gatos NutraPro",
-    "descripcion": "El \"Alimento para Gatos y Gatitos NUTRAPRO\" es un alimento seco formulado para satisfacer las necesidades nutricionales de los gatos y gatitos. Está diseñado para ser una fuente completa de nutrición y proporciona los nutrientes esenciales que los gatos necesitan para mantenerse saludables y activos",
-    "precio": "2.25",
-    "stock": 200,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2024/08/7861032237528-1-4.jpg",
+    "categoria": 2,
+      "nombre": "Perfume - Abrazo en el Tiempo",
+      "descripcion": "Una fragancia base suave y atalcada, formulada para recrear esa sensación de paz al abrazarlos fuerte.",
+      "precio": "5.00",
+      "stock": 180,
+      "imagen": "assets/perfumes/azul.png",
     "activo": true,
     "fecha_creacion": "2026-04-17T23:52:13.664Z"
   }
@@ -185,12 +162,12 @@
   "model": "api.producto",
   "pk": 10,
   "fields": {
-    "categoria": 4,
-    "nombre": "Alimento Humedo Para Gatos Whiskas",
-    "descripcion": "Alimento Húmedo para gatos Whiskas Adult Atún en Salsa , ofrece a tu gato deliciosos trocitos de carne cocidos al vapor que le otorgan fibras naturales y minerales, Vitamina A y Taurina que benefician integralmente su salud",
-    "precio": "0.85",
-    "stock": 80,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/06/7896029046609-1-9.png",
+    "categoria": 2,
+      "nombre": "Perfume - Brisa de Travesuras",
+      "descripcion": "Perfume con notas cítricas y alegres, ideal para recordar a ese compañero juguetón lleno de energía inagotable.",
+      "precio": "5.00",
+      "stock": 180,
+      "imagen": "assets/perfumes/morado.png",
     "activo": true,
     "fecha_creacion": "2026-04-17T23:53:58.876Z"
   }
@@ -199,12 +176,12 @@
   "model": "api.producto",
   "pk": 11,
   "fields": {
-    "categoria": 4,
-    "nombre": "Alimento para gatos Vitality Nutrapro",
-    "descripcion": "Este alimento para gatos adultos está diseñado para ofrecer una dieta completa y equilibrada que sea deliciosa y nutritiva. El sabor a pescado suele ser atractivo para muchos gatos, lo que puede estimular su apetito",
-    "precio": "2.25",
-    "stock": 70,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/03/7861032237542-1.png",
+    "categoria": 2,
+      "nombre": "Perfume - Esencia de Lealtad",
+      "descripcion": "Fragancia amaderada y profunda. Un tributo olfativo al amigo que nunca se separó de tu lado.",
+      "precio": "5.00",
+      "stock": 180,
+      "imagen": "assets/perfumes/rojo.png",
     "activo": true,
     "fecha_creacion": "2026-04-17T23:56:06.613Z"
   }
@@ -213,12 +190,12 @@
   "model": "api.producto",
   "pk": 12,
   "fields": {
-    "categoria": 4,
-    "nombre": "Snack Nuggets para gatos Nutrapro",
-    "descripcion": "Este snack para gatos está formulado para ser una recompensa sabrosa que a los gatos les encanta. Por lo general, contiene ingredientes de alta calidad, incluyendo pollo y hígado, que son sabores que a menudo son muy atractivos para los gatos. Estas golosinas son ideales para premiar a tu gato por su buen comportamiento o simplemente para darle un bocado delicioso de vez en cuando",
-    "precio": "1.25",
-    "stock": 80,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2024/12/7861032245257-1-18.jpg",
+    "categoria": 2,
+      "nombre": "Perfume - Suspiro de Miel",
+      "descripcion": "Perfume de base dulce y tierna, perfecto para aquellos consentidos que llenaban de mimos cada rincón de la casa.",
+      "precio": "5.00",
+      "stock": 180,
+      "imagen": "assets/perfumes/tomate.png",
     "activo": true,
     "fecha_creacion": "2026-04-17T23:57:25.921Z"
   }
@@ -227,182 +204,28 @@
   "model": "api.producto",
   "pk": 13,
   "fields": {
-    "categoria": 6,
-    "nombre": "Detergente en polvo Elimina Olores CICLON",
-    "descripcion": "Limpia profundamente mientras suaviza y perfuma",
-    "precio": "1.94",
-    "stock": 50,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2026/03/7861048616553-1-10.png",
+    "categoria": 2,
+      "nombre": "Perfume - Aura de mi Hogar",
+      "descripcion": "Una fragancia cálida y familiar que trae de vuelta ese olorcito único que hacía que tu casa se sintiera completa.",
+      "precio": "5.00",
+      "stock": 180,
+      "imagen": "assets/perfumes/verde.png",
     "activo": true,
     "fecha_creacion": "2026-04-18T00:04:09.414Z"
   }
 },
 {
   "model": "api.producto",
-  "pk": 14,
+  "pk": 13,
   "fields": {
-    "categoria": 6,
-    "nombre": "Detergente Multipoder DEJA",
-    "descripcion": "Deja te trae la fòrmula màs poderosa de la historia, ahora con tecnologia de Bicarbonato Activo que te da Ultra Rendimiento + Ultra Limpieza",
-    "precio": "1.85",
-    "stock": 70,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/05/7861001300925-1-3.png",
+    "categoria": 3,
+      "nombre": "Certificado de Defunción - Carta de Despedida",
+      "descripcion": "Tributo escrito a la vida, la lealtad y la inmensa alegría que tu mascota trajo a tu familia. Impreso en papel premium de textura perlada con detalles elegantes, este certificado personalizable reconoce oficialmente el legado de amor incondicional de tu compañero.",
+      "precio": "5.00",
+      "stock": 180,
+      "imagen": "/assets/certificado.jpg",
     "activo": true,
-    "fecha_creacion": "2026-04-18T00:05:20.985Z"
-  }
-},
-{
-  "model": "api.producto",
-  "pk": 15,
-  "fields": {
-    "categoria": 6,
-    "nombre": "Cloro Gel Diamant",
-    "descripcion": "Es un limpiador, desinfectante y blanqueador multiusos que elimina el 99.99% de hongos y bacterias",
-    "precio": "0.78",
-    "stock": 20,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2024/08/7861038059995-1-11.jpg",
-    "activo": true,
-    "fecha_creacion": "2026-04-18T00:07:16.061Z"
-  }
-},
-{
-  "model": "api.producto",
-  "pk": 16,
-  "fields": {
-    "categoria": 6,
-    "nombre": "Fósforos de seguridad Fogata",
-    "descripcion": "Enciende tus momentos especiales con los fósforos de seguridad Fogata",
-    "precio": "0.49",
-    "stock": 89,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/06/7861020000271-1-20.jpg",
-    "activo": true,
-    "fecha_creacion": "2026-04-18T00:08:54.474Z"
-  }
-},
-{
-  "model": "api.producto",
-  "pk": 17,
-  "fields": {
-    "categoria": 6,
-    "nombre": "Velas Blancas Universales",
-    "descripcion": "Vela Universal Blanca Lisa Funda",
-    "precio": "0.85",
-    "stock": 59,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/06/7861042579045-1-18.jpg",
-    "activo": true,
-    "fecha_creacion": "2026-04-18T00:11:09.406Z"
-  }
-},
-{
-  "model": "api.producto",
-  "pk": 18,
-  "fields": {
-    "categoria": 7,
-    "nombre": "Barra de Chocolate Snickers",
-    "descripcion": "La más deliciosa combinación de caramelo y nougat de maní en una envoltura de chocolate que calma tu hambre",
-    "precio": "0.64",
-    "stock": 70,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2024/08/40000514251-1-27.png",
-    "activo": true,
-    "fecha_creacion": "2026-04-18T00:17:08.661Z"
-  }
-},
-{
-  "model": "api.producto",
-  "pk": 19,
-  "fields": {
-    "categoria": 7,
-    "nombre": "Barra De Chocolate Con Maní",
-    "descripcion": "Deliciosa barra de chocolate.",
-    "precio": "1.05",
-    "stock": 87,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/06/7861091148124-1-1.png",
-    "activo": true,
-    "fecha_creacion": "2026-04-18T00:20:10.736Z"
-  }
-},
-{
-  "model": "api.producto",
-  "pk": 20,
-  "fields": {
-    "categoria": 7,
-    "nombre": "Bocaditos De Maíz Sabor Mega Queso",
-    "descripcion": "Snack crujiente con sabores intensos, ideal para compartir.",
-    "precio": "3.63",
-    "stock": 67,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2026/03/7861018591897-1-3.png",
-    "activo": true,
-    "fecha_creacion": "2026-04-18T00:22:14.125Z"
-  }
-},
-{
-  "model": "api.producto",
-  "pk": 21,
-  "fields": {
-    "categoria": 7,
-    "nombre": "Cake Cubierto de Chocolate Biri Biri",
-    "descripcion": "Pastelito de chocolate relleno de crema",
-    "precio": "0.49",
-    "stock": 33,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/06/7861009943759-1-10.png",
-    "activo": true,
-    "fecha_creacion": "2026-04-18T00:25:16.414Z"
-  }
-},
-{
-  "model": "api.producto",
-  "pk": 22,
-  "fields": {
-    "categoria": 7,
-    "nombre": "Barrilete",
-    "descripcion": "Caramelo Masticables Sabor Tutti Frutti BARRILETE 400 G",
-    "precio": "2.30",
-    "stock": 88,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2024/10/7702993602508-1.png",
-    "activo": true,
-    "fecha_creacion": "2026-04-18T00:26:34.770Z"
-  }
-},
-{
-  "model": "api.producto",
-  "pk": 23,
-  "fields": {
-    "categoria": 8,
-    "nombre": "Aguardiente sin azúcar Antioqueno",
-    "descripcion": "Un licor seco obtenido con alcohol extra puro a partir de subproductos de melaza, miel virgen y azúcar, con su tradicional sabor a esencia de anís",
-    "precio": "7.69",
-    "stock": 90,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/08/7702049000548-1-20.png",
-    "activo": true,
-    "fecha_creacion": "2026-04-18T00:29:17.438Z"
-  }
-},
-{
-  "model": "api.producto",
-  "pk": 24,
-  "fields": {
-    "categoria": 8,
-    "nombre": "Bebida de Malta PonyMalta",
-    "descripcion": "Bebida refrescante y nutritiva a base de malta, con ingredientes naturales. Enriquecida con vitaminas y minerales",
-    "precio": "0.43",
-    "stock": 90,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/03/9497003006-1-1.png",
-    "activo": true,
-    "fecha_creacion": "2026-04-18T00:30:41.627Z"
-  }
-},
-{
-  "model": "api.producto",
-  "pk": 25,
-  "fields": {
-    "categoria": 8,
-    "nombre": "Cerveza Pilsener",
-    "descripcion": "Cerveza Tipo Pilsener De Origen Ecuatoriano Desde 1913 L Abv 4. 0° contiene 1 Lata De 355ml",
-    "precio": "0.85",
-    "stock": 78,
-    "imagen": "https://supermaxi-225de.kxcdn.com/wp-content/uploads/2025/08/9497000661-1-11-300x300.jpg",
-    "activo": true,
-    "fecha_creacion": "2026-04-18T00:31:59.695Z"
+    "fecha_creacion": "2026-04-18T00:04:09.414Z"
   }
 },
 {
@@ -543,12 +366,12 @@
     "model": "api.producto",
     "pk": 99,
     "fields": {
-      "categoria": 1,
+      "categoria": 4,
       "nombre": "Kit Memorial Personalizado",
       "descripcion": "Kit conmemorativo base para personalización.",
       "precio": "30.00",
       "stock": 1000,
-      "imagen": "/assets/logo-tuti.png",
+      "imagen": "/assets/persona.png",
       "activo": true,
       "fecha_creacion": "2024-01-01T00:00:00Z"
     }
