@@ -16,8 +16,9 @@ export class LocalesComponent {
   // 1. Inyectamos el carrito de tu equipo
   private cartService = inject(CartService);
 
-  precioBase = 30.00;
-  precioTotal = 30.00;
+  // --- NUEVA ESTRUCTURA DE PRECIOS ---
+  precioBase = 11.00;
+  precioTotal = 11.00;
 
   // 1. Perfume
   incluyePerfume = false;
@@ -37,9 +38,11 @@ export class LocalesComponent {
 
   actualizarPrecio() {
     this.precioTotal = this.precioBase;
-    if (this.incluyePerfume) this.precioTotal += 5.00;
-    if (this.incluyeVela) this.precioTotal += 3.00;
-    if (this.incluyeCertificado) this.precioTotal += 2.00;
+    
+    // Sumamos los valores exactos que te indicó tu amiga
+    if (this.incluyePerfume) this.precioTotal += 15.00;
+    if (this.incluyeVela) this.precioTotal += 9.00;
+    if (this.incluyeCertificado) this.precioTotal += 5.00;
   }
 
   // --- FUNCIÓN PARA AÑADIR AL CARRITO REAL ---
