@@ -20,13 +20,16 @@
     
     .hero-section {
     background-image: 
-    linear-gradient(rgba(217, 162, 44, 0.919), rgba(0, 60, 165, 0.36)),
+    linear-gradient(rgb(217, 162, 44), rgba(0, 60, 165, 0.296)),
     url('/assets/banner.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     min-height: 650px;
     
+     box-shadow: 
+      inset 0 0 30px 20px #fdfcfba6, 
+      inset 0 0 150px 70px rgba(255, 255, 255, 0.573);
    }
 
     .hero-content {
@@ -37,6 +40,7 @@
     .category-box {
       background: rgba(122, 185, 243, 0.568);
       border-radius: 30px;
+      
       padding: 20px 10px;
       cursor: pointer;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -83,34 +87,76 @@
   50%      { border-color: transparent; }
 }
 
-
+/* =========================================
+   DISEÑO DEL BANNER - CIELO CON NUBES
+   ========================================= */
 
 .banner-tuti {
   position: relative;
-  background: linear-gradient(135deg, #e3bd8e62 0%, #a47c3597 50%, #624a256c 100%);
-  min-height: 400px;
+  background: linear-gradient(135deg, #83a4d8 0%, #e2ebf0 50%, #fdfcfb 100%);
+  min-height: 300px;
   display: flex;
   align-items: center;
   overflow: hidden;
   margin-bottom: 2rem;
+  
+  /* 1. Redondeamos un poco las esquinas para quitar la rigidez */
+  border-radius: 24px; 
+  
+  /* 2. Efecto de "Nubes" difuminadas en los bordes */
+  box-shadow: 
+    inset 0 0 80px 40px #fdfcfb, 
+    inset 0 0 150px 70px rgba(255, 255, 255, 0.8);
 }
 
-/* Patrón de puntos decorativo igual al de la imagen */
+/* PRIMERA CAPA DE ESTRELLAS (Más brillantes y grandes) */
+.banner-tuti::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  /* Núcleo blanco puro (#ffffff) y borde difuminado para que resalten */
+  background-image: 
+    radial-gradient(circle, #ffffff 2.5px, rgba(255, 255, 255, 0.6) 6px, transparent 10px),
+    radial-gradient(circle, #ffffff 1.5px, rgba(255, 255, 255, 0.5) 4px, transparent 7px),
+    radial-gradient(circle, #ffffff 3px, rgba(255, 255, 255, 0.7) 7px, transparent 12px);
+  background-position: 10% 20%, 30% 60%, 70% 30%;
+  background-size: 150px 150px, 100px 100px, 200px 200px;
+  pointer-events: none;
+  animation: destelloMagico 3s infinite alternate;
+  
+  /* 3. Agregamos un resplandor (Glow) a las estrellas */
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 1));
+  z-index: 1;
+}
+
+/* SEGUNDA CAPA DE ESTRELLAS (Cálidas y con resplandor) */
 .banner-tuti::after {
   content: '';
   position: absolute;
-  right: 0;
-  top: 0;
-  width: 40%;
-  height: 100%;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px);
-  background-size: 20px 20px;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    radial-gradient(circle, #fff1de 2.5px, rgba(255, 228, 196, 0.6) 6px, transparent 10px), 
+    radial-gradient(circle, #ffffff 2px, rgba(255, 255, 255, 0.5) 5px, transparent 8px);
+  background-position: 80% 80%, 40% 10%;
+  background-size: 180px 180px, 120px 120px;
   pointer-events: none;
+  animation: destelloMagico 4.5s infinite alternate-reverse;
+  
+  /* Resplandor cálido */
+  filter: drop-shadow(0 0 8px rgba(255, 228, 196, 0.9));
+  z-index: 1;
 }
+
+/* ANIMACIÓN DEL DESTELLO */
+@keyframes destelloMagico {
+  0% { opacity: 0.3; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1.1); }
+}
+
 
 .banner-contenido {
   position: relative;
-  z-index: 2;
+  z-index: 2; /* Para que el texto quede por encima de las estrellas */
   padding: 3rem 4rem;
   max-width: 55%;
 }
@@ -118,34 +164,42 @@
 .banner-titulo {
   font-size: 3rem;
   font-weight: 800;
-  color: #cc5b2e;
+  color: var(--tuti-azul-dark, #5A83A6); /* Azul profundo para destacar en el cielo claro */
   line-height: 1.1;
   margin-bottom: 0.5rem;
 }
 
 .banner-subtitulo {
   font-size: 1.1rem;
-  color: white;
+  color: #4A4540; /* Cambiamos a gris oscuro cálido; el blanco se perdería en el cielo celeste */
   margin-bottom: 1.5rem;
   font-weight: 500;
+  line-height: 1.6;
 }
+
+/* =========================================
+   RESTO DEL CÓDIGO (Botones e imágenes)
+   ========================================= */
 
 .btn-banner {
   display: inline-block;
-  background-color: #89560e;
-  color: #a58100;
+  background-color: var(--tuti-naranja, #F7D060);
+  color: #5f3f0e;
   font-weight: 800;
   font-size: 1rem;
   padding: 0.75rem 2rem;
   border-radius: 50px;
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  z-index: 2;
 }
 
 .btn-banner:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-  color: #003DA5;
+  box-shadow: 0 6px 16px rgba(247, 208, 96, 0.4);
+  background-color: var(--tuti-naranja-dark, #E5B842);
+  color: #3e2808;
 }
 
 .banner-imagen {
@@ -155,7 +209,7 @@
   height: 110%;
   max-height: 380px;
   object-fit: contain;
-  z-index: 1;
+  z-index: 2; /* Sobre las estrellas */
   transition: transform 0.4s ease-out;
   animation: flotarPersona 3s ease-in-out infinite;
 }
@@ -163,15 +217,13 @@
 /* Cuando el mouse entra al banner, la imagen se mueve */
 .banner-tuti:hover .banner-imagen {
   transform: translateX(-20px) translateY(-10px) scale(1.05);
-  animation-play-state: paused; /* pausa el flotar al hacer hover */
+  animation-play-state: paused;
 }
 
-/* Si quieres que reaccione según la mitad del banner */
 .banner-tuti:hover .banner-contenido {
   transform: translateX(5px);
   transition: transform 0.4s ease-out;
 }
-
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -188,4 +240,94 @@
     opacity: 0.15;
     height: 100%;
   }
+}
+
+/* =========================================
+   SECCIÓN PERSONALIZADO - ATARDECER Y NUBES
+   ========================================= */
+
+.fondo-atardecer {
+  position: relative;
+  overflow: hidden;
+  /* Degradado cálido: tonos durazno, naranja suave y amarillo */
+  background: linear-gradient(135deg, #ffd9a8 0%, #fdd488 50%, #f7ce69 100%);
+  
+  /* Efecto de Nubes/Viñeta difuminada en los bordes */
+  box-shadow: 
+    inset 0 0 80px 40px #fdfcfb, 
+    inset 0 0 150px 70px rgba(255, 255, 255, 0.85);
+}
+
+/* Partículas destellantes cálidas (Magia en el aire) */
+.fondo-atardecer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    radial-gradient(circle, #ffffff 2px, rgba(255, 255, 255, 0.8) 5px, transparent 8px),
+    radial-gradient(circle, #ffe9c2 2px, rgba(255, 233, 194, 0.7) 6px, transparent 10px);
+  background-position: 20% 30%, 80% 70%;
+  background-size: 150px 150px, 120px 120px;
+  pointer-events: none;
+  animation: destelloMagico 3.5s infinite alternate;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 1));
+  z-index: 1;
+}
+
+/* El contenido debe ir encima de las partículas */
+.contenido-sobre-magia {
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================
+   ANIMACIONES DE LAS TARJETAS (PASOS)
+   ========================================= */
+
+.paso-card {
+  transition: all 0.4s ease;
+  /* Preparamos la tarjeta para la animación inicial */
+  opacity: 0;
+  transform: translateY(40px);
+  animation: subirPaso 0.8s ease-out forwards;
+  border: 2px solid transparent;
+}
+
+/* Retrasos para que aparezcan en escalera (Paso 1, luego 2, luego 3) */
+.paso-1 { animation-delay: 0.2s; }
+.paso-2 { animation-delay: 0.4s; }
+.paso-3 { animation-delay: 0.6s; }
+
+@keyframes subirPaso {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Efecto al pasar el mouse por cada tarjeta */
+.paso-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(250, 160, 85, 0.25) !important;
+  border-color: #f7d060 !important; /* Borde amarillo suave */
+}
+
+/* Latido del número cuando haces hover en la tarjeta */
+.paso-card:hover .badge-animado {
+  animation: latidoSuave 1s infinite;
+}
+
+@keyframes latidoSuave {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); background-color: #ffb74d !important; color: white !important;}
+  100% { transform: scale(1); }
+}
+
+/* Un toque extra para el botón mágico */
+.boton-magico {
+  position: relative;
+  z-index: 2;
+}
+.boton-magico:hover i {
+  animation: latidoSuave 1s infinite;
 }

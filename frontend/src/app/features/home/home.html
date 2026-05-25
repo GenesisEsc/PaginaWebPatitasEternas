@@ -1,12 +1,11 @@
-<section class="hero-section text-center text-white d-flex align-items-center justify-content-center">
+<section class="hero-section text-center text-white d-flex align-items-center justify-content-center mb-5">
   <div class="hero-content p-2">
     <h1 class="display-4 fw-bold mb-3">
       <span class="typing-text">Patitas Eternas</span>
       <p class="banner-subtitulo">Detalles que convierten amor en recuerdos inolvidables.</p>
-
     </h1>
     <br>
-    <a routerLink="/catalogo" class="btn btn-tuti-naranja btn-lg px-5 py-3 fw-bold hero-btn">
+    <a routerLink="/locales" class="btn btn-tuti-naranja btn-lg px-5 py-3 fw-bold hero-btn">
       Crear Kit Personalizado <i class="bi bi-arrow-right ms-2"></i>
     </a>
   </div>
@@ -32,41 +31,50 @@
 <section class="container my-5 text-center">
   <h3 class="mb-4 text-tuti-azul fw-bold">Explora nuestros productos</h3>
 
-  @if (categorias().length === 0) {
-    <div class="text-center py-3">
-      <div class="spinner-border text-warning" role="status"></div>
+  <div class="categorias-scroll d-flex gap-3 justify-content-center flex-wrap">
+    
+    <div class="category-box animate-entrada" style="animation-delay: 0ms; cursor: pointer;" routerLink="/catalogo">
+      <i class="bi bi-stars fs-1 text-tuti-azul"></i>
+      <h6 class="mt-2 fw-bold" style="color: #4A4540;">Velas Conmemorativas</h6>
     </div>
-  } @else {
-    <div class="categorias-scroll d-flex gap-3 justify-content-center flex-wrap">
-      @for (cat of categorias(); track cat.id; let i = $index) {
-        <div
-          class="category-box animate-entrada"
-          [style.animation-delay]="(i * 80) + 'ms'"
-          (click)="irACategoria(cat)">
-          <i class="bi {{ getIcono(cat.nombre) }} fs-1 text-tuti-azul"></i>
-          <h6 class="mt-2 fw-bold text-dark">{{ cat.nombre }}</h6>
-        </div>
-      }
+
+    <div class="category-box animate-entrada" style="animation-delay: 80ms; cursor: pointer;" routerLink="/catalogo">
+      <i class="bi bi-droplet-half fs-1 text-tuti-azul"></i>
+      <h6 class="mt-2 fw-bold" style="color: #4A4540;">Perfumes & Fragancias</h6>
     </div>
-  }
+
+    <div class="category-box animate-entrada" style="animation-delay: 160ms; cursor: pointer;" routerLink="/catalogo">
+      <i class="bi bi-award fs-1 text-tuti-azul"></i>
+      <h6 class="mt-2 fw-bold" style="color: #4A4540;">Certificados de Defunción</h6>
+    </div>
+
+    <div class="category-box animate-entrada" style="animation-delay: 240ms; cursor: pointer;" routerLink="/personalizar-aroma">
+      <i class="bi bi-magic fs-1 text-tuti-azul"></i>
+      <h6 class="mt-2 fw-bold" style="color: #4A4540;">Personaliza tu Aroma</h6>
+    </div>
+
+    <div class="category-box animate-entrada" style="animation-delay: 320ms; cursor: pointer;" routerLink="/catalogo">
+      <i class="bi bi-gift fs-1 text-tuti-azul"></i>
+      <h6 class="mt-2 fw-bold" style="color: #4A4540;">Kits de Memoria</h6>
+    </div>
+
+  </div>
 </section>
-
-
-<section class="container my-5">
-  <div class="card border-0 shadow-sm" style="background-color: #95959541; border-radius: 1.5rem;">
-    <div class="card-body p-5 text-center">
+<section class="seccion-personalizado container my-5">
+  <div class="card border-0 fondo-atardecer" style="border-radius: 1.5rem;">
+    <div class="card-body p-5 text-center contenido-sobre-magia">
       
       <h2 class="text-tuti-azul fw-bold mb-3">Diseña el Aroma de su Recuerdo</h2>
-      <p class="lead mb-5 text-secondary">
+      <p class="lead mb-5" style="color: #5c4e40;">
         ¿Extrañas ese olorcito único de su cabecita o sus patitas? O tal vez quieres un perfume que refleje su personalidad activa o relajada.
       </p>
 
       <div class="row g-4 mb-5 text-start">
         
         <div class="col-md-4">
-          <div class="p-4 bg-white h-100 shadow-sm" style="border-radius: 1rem;">
+          <div class="p-4 bg-white h-100 shadow-sm paso-card paso-1" style="border-radius: 1rem;">
             <div class="d-flex align-items-center mb-3">
-              <span class="badge bg-warning text-dark fs-5 me-2 rounded-circle">1</span>
+              <span class="badge bg-warning text-dark fs-5 me-2 rounded-circle badge-animado">1</span>
               <h5 class="fw-bold text-tuti-azul mb-0">La Base</h5>
             </div>
             <p class="mb-0 text-muted">Elige la base de la fragancia (Dulce, Amaderada, Cítrica o Floral).</p>
@@ -74,9 +82,9 @@
         </div>
 
         <div class="col-md-4">
-          <div class="p-4 bg-white h-100 shadow-sm" style="border-radius: 1rem;">
+          <div class="p-4 bg-white h-100 shadow-sm paso-card paso-2" style="border-radius: 1rem;">
             <div class="d-flex align-items-center mb-3">
-              <span class="badge bg-warning text-dark fs-5 me-2 rounded-circle">2</span>
+              <span class="badge bg-warning text-dark fs-5 me-2 rounded-circle badge-animado">2</span>
               <h5 class="fw-bold text-tuti-azul mb-0">Personalidad</h5>
             </div>
             <p class="mb-0 text-muted">Cuéntanos su personalidad (¿Era juguetón, dormilón o el guardián de la casa?).</p>
@@ -84,9 +92,9 @@
         </div>
 
         <div class="col-md-4">
-          <div class="p-4 bg-white h-100 shadow-sm" style="border-radius: 1rem;">
+          <div class="p-4 bg-white h-100 shadow-sm paso-card paso-3" style="border-radius: 1rem;">
             <div class="d-flex align-items-center mb-3">
-              <span class="badge bg-warning text-dark fs-5 me-2 rounded-circle">3</span>
+              <span class="badge bg-warning text-dark fs-5 me-2 rounded-circle badge-animado">3</span>
               <h5 class="fw-bold text-tuti-azul mb-0">El Detalle</h5>
             </div>
             <p class="mb-0 text-muted">Recibe tu fragancia personalizada con su nombre en la etiqueta.</p>
@@ -95,7 +103,7 @@
 
       </div>
 
-      <a routerLink="/personalizar-aroma" class="btn btn-tuti-naranja btn-lg px-5 py-3 fw-bold rounded-pill">
+      <a routerLink="/locales" class="btn btn-tuti-naranja btn-lg px-5 py-3 fw-bold rounded-pill boton-magico">
         Configurar Mi Fragancia Ahora <i class="bi bi-magic ms-2"></i>
       </a>
 
@@ -108,7 +116,6 @@
     <h3 class="text-tuti-azul fw-bold mb-0">Productos Destacados 🌟</h3>
     <a routerLink="/catalogo" class="text-tuti-naranja fw-bold text-decoration-none">Ver todos</a>
   </div>
-
 
   @if (cargando()) {
     <div class="text-center py-5">
