@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Locales } from './locales';
+import { LocalesComponent } from './locales';
 
-describe('Locales', () => {
-  let component: Locales;
+describe('LocalesComponent', () => {
+  let component: LocalesComponent;
   let fixture: ComponentFixture<Locales>;
 
   beforeEach(async () => {

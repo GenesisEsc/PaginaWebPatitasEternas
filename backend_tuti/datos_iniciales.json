@@ -538,5 +538,19 @@
     "latitud": "-2.141170",
     "longitud": "-79.935940"
   }
+},
+{
+    "model": "api.producto",
+    "pk": 99,
+    "fields": {
+      "categoria": 1,
+      "nombre": "Kit Memorial Personalizado",
+      "descripcion": "Kit conmemorativo base para personalización.",
+      "precio": "30.00",
+      "stock": 1000,
+      "imagen": "/assets/logo-tuti.png",
+      "activo": true,
+      "fecha_creacion": "2024-01-01T00:00:00Z"
+    }
 }
 ]

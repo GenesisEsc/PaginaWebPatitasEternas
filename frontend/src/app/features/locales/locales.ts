@@ -1,100 +1,93 @@
-import { Component, signal, computed, AfterViewInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ApiService, Tienda } from '../../core/services/api';
-import { ToastService } from '../../core/services/toast';
-import * as L from 'leaflet';
+import { Component, inject } from '@angular/core';
+import { CommonModule, DecimalPipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { CartService } from '../../core/services/cart';
 
 @Component({
   selector: 'app-locales',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
+  providers: [DecimalPipe],
   templateUrl: './locales.html',
   styleUrl: './locales.css',
 })
-export class LocalesComponent implements AfterViewInit {
+export class LocalesComponent {
+  // 1. Inyectamos el carrito de tu equipo
+  private cartService = inject(CartService);
 
-  private apiService = inject(ApiService);
-  private toastService = inject(ToastService);
-  private map: any;
-  private marcadores: L.Marker[] = [];
+  precioBase = 30.00;
+  precioTotal = 30.00;
 
-  todasLasTiendas = signal<Tienda[]>([]);
-  filtroProvincia = signal('Todas');
-  tiendaSeleccionada = signal<Tienda | null>(null);
+  // 1. Perfume
+  incluyePerfume = false;
+  perfumeBase = 'Lavanda';
+  perfumeColor = 'Rojo';
 
-  tiendasFiltradas = computed(() => {
-    const prov = this.filtroProvincia();
-    const tiendas = this.todasLasTiendas();
-    return prov === 'Todas' ? tiendas : tiendas.filter(t => t.provincia === prov);
-  });
+  // 2. Vela
+  incluyeVela = false;
+  velaAroma = 'Vainilla';
+  velaColor = 'Blanco';
 
-  ngAfterViewInit() {
-    this.iniciarMapa();
+  // 3. Certificado
+  incluyeCertificado = false;
+  certNombre = '';
+  certNacimiento = '';
+  certDefuncion = '';
 
-    this.apiService.getLocales().subscribe({
-      next: (data) => {
-  console.log('Tiendas recibidas:', JSON.stringify(data));
-  this.todasLasTiendas.set(data);
-  this.actualizarMarcadores();
-},
-      error: (err) => {
-        console.error('Error cargando locales desde el backend', err);
-        this.toastService.showError('Error de servidor: No se pudieron cargar los locales.');
-      }
-    });
+  actualizarPrecio() {
+    this.precioTotal = this.precioBase;
+    if (this.incluyePerfume) this.precioTotal += 5.00;
+    if (this.incluyeVela) this.precioTotal += 3.00;
+    if (this.incluyeCertificado) this.precioTotal += 2.00;
   }
 
-  private iniciarMapa(): void {
-    this.map = L.map('contenedor-mapa').setView([-1.8312, -78.1834], 7);
+  // --- FUNCIÓN PARA AÑADIR AL CARRITO REAL ---
+  agregarAlCarrito() {
+    // Armamos un título largo para que se vea todo lo que eligió en el carrito
+    let nombreDetallado = 'Kit Memorial';
+    if (this.incluyePerfume) nombreDetallado += ` (+ Perfume ${this.perfumeBase})`;
+    if (this.incluyeVela) nombreDetallado += ` (+ Vela ${this.velaAroma})`;
+    if (this.incluyeCertificado && this.certNombre) nombreDetallado += ` (+ Certificado: ${this.certNombre})`;
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '© OpenStreetMap'
-    }).addTo(this.map);
+    // Creamos el producto respetando exactamente la interfaz CartItem de tus compañeros
+    const kitProducto = {
+      id: 99, // ID numérico único
+      nombre: nombreDetallado,
+      precio: this.precioTotal,
+      // Si eligió algo, mostramos esa foto, sino mandamos el logo de Tuti por defecto
+      imagen: this.incluyePerfume ? this.imagenPerfume : (this.incluyeVela ? this.imagenVela : '/assets/logo-tuti.png')
+    };
+
+    // Llamamos a la función exacta de tu archivo cart.ts
+    this.cartService.agregarProducto(kitProducto); 
+
+    // Confirmación
+    alert('¡Tu Kit Memorial Personalizado ha sido añadido al carrito con éxito!');
   }
 
-  private iconoLeaflet(): L.Icon {
-    return L.icon({
-      iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-      shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-      iconSize: [25, 41],
-      iconAnchor: [12, 41],
-      popupAnchor: [1, -34],
-    });
+  // --- RUTAS DINÁMICAS PARA LAS IMÁGENES ---
+  get imagenPerfume(): string {
+    switch(this.perfumeColor) {
+      case 'Morado': return '/assets/perfumes/morado.png';
+      case 'Azul': return '/assets/perfumes/azul.png';
+      case 'Verde': return '/assets/perfumes/verde.png';
+      case 'Amarillo': return '/assets/perfumes/amarillo.png';
+      case 'Rojo': return '/assets/perfumes/rojo.png';
+      case 'Tomate': return '/assets/perfumes/tomate.png';
+      default: return '/assets/perfumes/default.png';
+    }
   }
 
-  private actualizarMarcadores(): void {
-    if (!this.map) return;
-
-    this.marcadores.forEach(m => m.remove());
-    this.marcadores = [];
-
-    const icono = this.iconoLeaflet();
-
-    this.tiendasFiltradas().forEach(tienda => {
-      const marker = L.marker([tienda.latitud, tienda.longitud], { icon: icono })
-        .addTo(this.map)
-        .bindPopup(`<b>${tienda.nombre}</b><br>${tienda.direccion}`);
-
-      marker.on('click', () => this.seleccionarTienda(tienda));
-      this.marcadores.push(marker);
-    });
-  }
-
-  cambiarProvincia(event: Event) {
-    const valor = (event.target as HTMLSelectElement).value;
-    this.filtroProvincia.set(valor);
-    this.actualizarMarcadores();
-
-    if (valor === 'Pichincha') this.map.setView([-0.2299, -78.5249], 11);
-    else if (valor === 'Guayas') this.map.setView([-2.1894, -79.8891], 11);
-    else this.map.setView([-1.8312, -78.1834], 7);
-  }
-
-  seleccionarTienda(tienda: Tienda) {
-    this.tiendaSeleccionada.set(tienda);
-    if (this.map) {
-      this.map.setView([tienda.latitud, tienda.longitud], 16);
+  get imagenVela(): string {
+    switch(this.velaColor) {
+      case 'Blanco': return '/assets/velas/blanca.png';
+      case 'Verde': return '/assets/velas/verde.png';
+      case 'Tomate': return '/assets/velas/tomate.png';
+      case 'Azul': return '/assets/velas/azul.png';
+      case 'Morado': return '/assets/velas/morado.png';
+      case 'Rosado': return '/assets/velas/rosado.png';
+      case 'Negro': return '/assets/velas/negro.png';
+      default: return '/assets/velas/default.png';
     }
   }
 }
