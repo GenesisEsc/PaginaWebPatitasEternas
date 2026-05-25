@@ -26,7 +26,7 @@
               </div>
             </div>
             <button class="btn px-4 py-2" style="border-radius: var(--tuti-radio); font-family: 'Lora', serif; font-weight: 600; transition: 0.3s; font-size: 1.1rem;" [ngStyle]="{'background-color': incluyePerfume ? 'transparent' : 'var(--tuti-naranja)', 'color': incluyePerfume ? 'var(--tuti-naranja-dark)' : 'var(--tuti-blanco)', 'border': incluyePerfume ? '2px solid var(--tuti-naranja)' : '2px solid transparent'}" (click)="incluyePerfume = !incluyePerfume; actualizarPrecio()">
-              {{ incluyePerfume ? 'Quitar del kit' : 'Añadir (+$5.00)' }}
+              {{ incluyePerfume ? 'Quitar del kit' : 'Añadir (+$15.00)' }}
             </button>
           </div>
 
@@ -79,7 +79,7 @@
               </div>
             </div>
             <button class="btn px-4 py-2" style="border-radius: var(--tuti-radio); font-family: 'Lora', serif; font-weight: 600; transition: 0.3s; font-size: 1.1rem;" [ngStyle]="{'background-color': incluyeVela ? 'transparent' : 'var(--tuti-naranja)', 'color': incluyeVela ? 'var(--tuti-naranja-dark)' : 'var(--tuti-blanco)', 'border': incluyeVela ? '2px solid var(--tuti-naranja)' : '2px solid transparent'}" (click)="incluyeVela = !incluyeVela; actualizarPrecio()">
-              {{ incluyeVela ? 'Quitar del kit' : 'Añadir (+$3.00)' }}
+              {{ incluyeVela ? 'Quitar del kit' : 'Añadir (+$9.00)' }}
             </button>
           </div>
 
@@ -133,7 +133,7 @@
               </div>
             </div>
             <button class="btn px-4 py-2" style="border-radius: var(--tuti-radio); font-family: 'Lora', serif; font-weight: 600; transition: 0.3s; font-size: 1.1rem;" [ngStyle]="{'background-color': incluyeCertificado ? 'transparent' : 'var(--tuti-naranja)', 'color': incluyeCertificado ? 'var(--tuti-naranja-dark)' : 'var(--tuti-blanco)', 'border': incluyeCertificado ? '2px solid var(--tuti-naranja)' : '2px solid transparent'}" (click)="incluyeCertificado = !incluyeCertificado; actualizarPrecio()">
-              {{ incluyeCertificado ? 'Quitar del kit' : 'Añadir (+$2.00)' }}
+              {{ incluyeCertificado ? 'Quitar del kit' : 'Añadir (+$5.00)' }}
             </button>
           </div>
           
@@ -189,21 +189,21 @@
           <div *ngIf="incluyePerfume" class="mb-3 ps-3" style="border-left: 3px solid var(--tuti-azul);">
             <div class="d-flex justify-content-between">
               <span style="color: var(--tuti-azul); font-weight: 600;">+ Perfume ({{perfumeBase}}):</span>
-              <span style="font-weight: 600; color: var(--tuti-azul);">$5.00</span>
+              <span style="font-weight: 600; color: var(--tuti-azul);">$15.00</span>
             </div>
           </div>
 
           <div *ngIf="incluyeVela" class="mb-3 ps-3" style="border-left: 3px solid var(--tuti-azul);">
             <div class="d-flex justify-content-between">
               <span style="color: var(--tuti-azul); font-weight: 600;">+ Vela ({{velaAroma}}):</span>
-              <span style="font-weight: 600; color: var(--tuti-azul);">$3.00</span>
+              <span style="font-weight: 600; color: var(--tuti-azul);">$9.00</span>
             </div>
           </div>
 
           <div *ngIf="incluyeCertificado" class="mb-3 ps-3" style="border-left: 3px solid var(--tuti-azul);">
             <div class="d-flex justify-content-between">
               <span style="color: var(--tuti-azul); font-weight: 600;">+ Certificado:</span>
-              <span style="font-weight: 600; color: var(--tuti-azul);">$2.00</span>
+              <span style="font-weight: 600; color: var(--tuti-azul);">$5.00</span>
             </div>
             <div style="font-size: 0.85rem; color: var(--tuti-gris);" *ngIf="certNombre">Para: {{certNombre}}</div>
           </div>
